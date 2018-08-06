@@ -38,14 +38,16 @@
                         range:NSMakeRange(0,text.length)];
     [btn setAttributedTitle:attriString forState:UIControlStateNormal];
     
-    NSMutableAttributedString *attriStringS = [[NSMutableAttributedString alloc] initWithString:text];
-    [attriStringS addAttribute:NSFontAttributeName
-                         value:[UIFont boldSystemFontOfSize:(font+1)*kScale]
-                         range:NSMakeRange(0,text.length)];
-    [attriStringS addAttribute:NSForegroundColorAttributeName
-                        value:selectColor
-                        range:NSMakeRange(0,text.length)];
-    [btn setAttributedTitle:attriStringS forState:UIControlStateSelected];
+    if (selectColor) {
+        NSMutableAttributedString *attriStringS = [[NSMutableAttributedString alloc] initWithString:text];
+        [attriStringS addAttribute:NSFontAttributeName
+                             value:[UIFont boldSystemFontOfSize:(font+1)*kScale]
+                             range:NSMakeRange(0,text.length)];
+        [attriStringS addAttribute:NSForegroundColorAttributeName
+                             value:selectColor
+                             range:NSMakeRange(0,text.length)];
+        [btn setAttributedTitle:attriStringS forState:UIControlStateSelected];
+    }
     
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 

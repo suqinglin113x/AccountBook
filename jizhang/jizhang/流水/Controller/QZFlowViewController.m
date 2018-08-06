@@ -7,18 +7,31 @@
 //
 
 #import "QZFlowViewController.h"
+#import "QZAccountTableView.h"
 
 @interface QZFlowViewController ()
+
+@property (nonatomic, strong) QZAccountTableView *mainView;
 
 @end
 
 @implementation QZFlowViewController
 
+- (QZAccountTableView *)mainView {
+    if (_mainView == nil) {
+        _mainView = [[QZAccountTableView alloc] initWithFrame:self.view.bounds];
+    }
+    return _mainView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationItem.title = @"账单流水";
     
+    self.navigationItem.title = @"账单流水";
+    [self.view addSubview:self.mainView];
+    [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.top.equalTo(self.view);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

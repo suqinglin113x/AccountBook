@@ -18,6 +18,7 @@
 
 #define kMainColor      [UIColor colorWithR:255 g:222 b:1]
 #define kBgColor      [UIColor colorWithR:248 g:248 b:248]
+#define kLineColor           [UIColor colorWithR:128 g:128 b:128]
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define kNavBarHeigth 44
 #define kNavBarAndStatusBarHeight (kStatusBarHeight + kNavBarHeigth)

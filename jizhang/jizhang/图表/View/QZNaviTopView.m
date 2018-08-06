@@ -52,7 +52,7 @@
 
 - (UIView *)line {
     if (_line == nil) {
-        _line = [self creatLineWithColor:[UIColor colorWithR:128 g:128 b:128] width:kScreenWidth height:0.6];
+        _line = [self creatLineWithColor:kLineColor width:kScreenWidth height:0.6];
     }
     return _line;
 }
@@ -76,7 +76,7 @@
     
     [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self);
-        make.height.mas_equalTo(0.8*kScale);
+        make.height.mas_equalTo(0.2*kScale);
     }];
     
     [self.expendLine mas_makeConstraints:^(MASConstraintMaker *make) {
