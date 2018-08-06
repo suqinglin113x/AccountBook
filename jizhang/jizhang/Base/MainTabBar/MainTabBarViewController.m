@@ -13,7 +13,7 @@
 #import "QZChartViewController.h"
 #import "QZPublishViewController.h"
 #import "QZFlowViewController.h"
-#import "QZMyViewController.h"
+#import "QZMineViewController.h"
 
 
 @interface MainTabBarViewController () <MainTabBarDelegate>
@@ -61,7 +61,7 @@
     
     [self addChildVc:[QZFlowViewController new] title:@"流水" image:@"chart_normal" selectedImage:@"chart_selected"];
     
-    [self addChildVc:[QZMyViewController new] title:@"我的" image:@"mine_normal" selectedImage:@"mine_selected"];
+    [self addChildVc:[QZMineViewController new] title:@"我的" image:@"mine_normal" selectedImage:@"mine_selected"];
 }
 
 - (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage

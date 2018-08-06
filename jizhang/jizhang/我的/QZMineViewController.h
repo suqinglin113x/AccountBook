@@ -1,5 +1,5 @@
 //
-//  QZMyViewController.h
+//  QZMineViewController.h
 //  jizhang
 //
 //  Created by Adam on 2018/7/31.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QZMyViewController : QZBaseViewController
+@interface QZMineViewController : QZBaseViewController
 
 @end
