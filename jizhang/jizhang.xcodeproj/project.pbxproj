@@ -3,10 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F481A8D2117F090009B701F /* QZChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8C2117F090009B701F /* QZChartView.m */; };
+		4F481A902117F1EC009B701F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8F2117F1EC009B701F /* UIColor+Extension.m */; };
+		4F481A952117F37E009B701F /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A942117F37E009B701F /* QZWidgetTool.m */; };
+		4F481A982118158E009B701F /* QZNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A972118158E009B701F /* QZNaviTopView.m */; };
+		4F481A9E21182A87009B701F /* QZAccountTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A9D21182A87009B701F /* QZAccountTableView.m */; };
+		4F481AA121182E43009B701F /* QZAccountHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA021182E43009B701F /* QZAccountHeaderView.m */; };
+		4F481AA721183E26009B701F /* QZPublishNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA621183E26009B701F /* QZPublishNaviTopView.m */; };
+		4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA921184FA4009B701F /* QZPublishInputView.m */; };
+		4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */; };
+		5673CE08779EEB6F693863AD /* libPods-jizhang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */; };
 		669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA32112F19700ADC556 /* QZMineTopHead.m */; };
 		669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA72112FE3000ADC556 /* QZJiZhangSettingController.m */; };
 		669F9DAB2112FE4D00ADC556 /* QZYuSuanSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DAA2112FE4D00ADC556 /* QZYuSuanSettingController.m */; };
@@ -83,6 +93,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jizhang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F481A8B2117F090009B701F /* QZChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZChartView.h; sourceTree = "<group>"; };
+		4F481A8C2117F090009B701F /* QZChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZChartView.m; sourceTree = "<group>"; };
+		4F481A8E2117F1EC009B701F /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		4F481A8F2117F1EC009B701F /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		4F481A932117F37E009B701F /* QZWidgetTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
+		4F481A942117F37E009B701F /* QZWidgetTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
+		4F481A962118158E009B701F /* QZNaviTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZNaviTopView.h; sourceTree = "<group>"; };
+		4F481A972118158E009B701F /* QZNaviTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZNaviTopView.m; sourceTree = "<group>"; };
+		4F481A9C21182A87009B701F /* QZAccountTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZAccountTableView.h; sourceTree = "<group>"; };
+		4F481A9D21182A87009B701F /* QZAccountTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZAccountTableView.m; sourceTree = "<group>"; };
+		4F481A9F21182E43009B701F /* QZAccountHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZAccountHeaderView.h; sourceTree = "<group>"; };
+		4F481AA021182E43009B701F /* QZAccountHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZAccountHeaderView.m; sourceTree = "<group>"; };
+		4F481AA521183E26009B701F /* QZPublishNaviTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPublishNaviTopView.h; sourceTree = "<group>"; };
+		4F481AA621183E26009B701F /* QZPublishNaviTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishNaviTopView.m; sourceTree = "<group>"; };
+		4F481AA821184FA4009B701F /* QZPublishInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPublishInputView.h; sourceTree = "<group>"; };
+		4F481AA921184FA4009B701F /* QZPublishInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputView.m; sourceTree = "<group>"; };
+		4F481AAB211855FE009B701F /* QZPublishInputCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPublishInputCollectionCell.h; sourceTree = "<group>"; };
+		4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputCollectionCell.m; sourceTree = "<group>"; };
 		669F9DA22112F19700ADC556 /* QZMineTopHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZMineTopHead.h; sourceTree = "<group>"; };
 		669F9DA32112F19700ADC556 /* QZMineTopHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZMineTopHead.m; sourceTree = "<group>"; };
 		669F9DA62112FE3000ADC556 /* QZJiZhangSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZJiZhangSettingController.h; sourceTree = "<group>"; };
@@ -196,9 +225,11 @@
 		66CD2742211160F4000283AD /* QZLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZLoginViewController.m; sourceTree = "<group>"; };
 		66CD274421116102000283AD /* QZRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZRegisterViewController.h; sourceTree = "<group>"; };
 		66CD274521116102000283AD /* QZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZRegisterViewController.m; sourceTree = "<group>"; };
+		7172D79740C51DA6E30F9708 /* Pods-jizhang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jizhang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jizhang/Pods-jizhang.debug.xcconfig"; sourceTree = "<group>"; };
 		8736DF4C2110AB81007A6AD5 /* QZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZBaseViewController.h; sourceTree = "<group>"; };
 		8736DF4D2110AB81007A6AD5 /* QZBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZBaseViewController.m; sourceTree = "<group>"; };
 		8736DF502110AC31007A6AD5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D9F9EB02A15C8068ACAB7F19 /* Pods-jizhang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jizhang.release.xcconfig"; path = "Pods/Target Support Files/Pods-jizhang/Pods-jizhang.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5673CE08779EEB6F693863AD /* libPods-jizhang.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +258,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F481A882117EFE7009B701F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F481A8B2117F090009B701F /* QZChartView.h */,
+				4F481A8C2117F090009B701F /* QZChartView.m */,
+				4F481A962118158E009B701F /* QZNaviTopView.h */,
+				4F481A972118158E009B701F /* QZNaviTopView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F481A892117EFED009B701F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				66CD26EC21105463000283AD /* QZChartViewController.h */,
+				66CD26ED21105463000283AD /* QZChartViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4F481A8A2117EFF5009B701F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F481A912117F32E009B701F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4F481A932117F37E009B701F /* QZWidgetTool.h */,
+				4F481A942117F37E009B701F /* QZWidgetTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		4F481A9921182841009B701F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F481A9C21182A87009B701F /* QZAccountTableView.h */,
+				4F481A9D21182A87009B701F /* QZAccountTableView.m */,
+				4F481A9F21182E43009B701F /* QZAccountHeaderView.h */,
+				4F481AA021182E43009B701F /* QZAccountHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F481A9A2118284B009B701F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F481A9B21182851009B701F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				66CD2733211069F9000283AD /* QZFlowViewController.h */,
+				66CD2734211069F9000283AD /* QZFlowViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4F481AA221183DB0009B701F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F481AA521183E26009B701F /* QZPublishNaviTopView.h */,
+				4F481AA621183E26009B701F /* QZPublishNaviTopView.m */,
+				4F481AA821184FA4009B701F /* QZPublishInputView.h */,
+				4F481AA921184FA4009B701F /* QZPublishInputView.m */,
+				4F481AAB211855FE009B701F /* QZPublishInputCollectionCell.h */,
+				4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F481AA321183DB5009B701F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F481AA421183DBB009B701F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				66CD26EF21105575000283AD /* QZPublishViewController.h */,
+				66CD26F021105575000283AD /* QZPublishViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		669F9DA12112F15A00ADC556 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +546,8 @@
 				66CD26BF21104406000283AD /* jizhangTests */,
 				66CD26CA21104406000283AD /* jizhangUITests */,
 				66CD26A521104401000283AD /* Products */,
+				72834770D2BFDA7F1046D5FD /* Pods */,
+				A4E2F57DE130CEB7FA27EB57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -489,8 +615,9 @@
 		66CD26DA21104518000283AD /* 发布 */ = {
 			isa = PBXGroup;
 			children = (
-				66CD26EF21105575000283AD /* QZPublishViewController.h */,
-				66CD26F021105575000283AD /* QZPublishViewController.m */,
+				4F481AA421183DBB009B701F /* Controller */,
+				4F481AA321183DB5009B701F /* Model */,
+				4F481AA221183DB0009B701F /* View */,
 			);
 			path = "发布";
 			sourceTree = "<group>";
@@ -498,8 +625,9 @@
 		66CD26DB21104518000283AD /* 图表 */ = {
 			isa = PBXGroup;
 			children = (
-				66CD26EC21105463000283AD /* QZChartViewController.h */,
-				66CD26ED21105463000283AD /* QZChartViewController.m */,
+				4F481A8A2117EFF5009B701F /* Model */,
+				4F481A892117EFED009B701F /* Controller */,
+				4F481A882117EFE7009B701F /* View */,
 			);
 			path = "图表";
 			sourceTree = "<group>";
@@ -518,8 +646,9 @@
 		66CD26DD21104519000283AD /* 流水 */ = {
 			isa = PBXGroup;
 			children = (
-				66CD2733211069F9000283AD /* QZFlowViewController.h */,
-				66CD2734211069F9000283AD /* QZFlowViewController.m */,
+				4F481A9B21182851009B701F /* Controller */,
+				4F481A9A2118284B009B701F /* Model */,
+				4F481A9921182841009B701F /* View */,
 			);
 			path = "流水";
 			sourceTree = "<group>";
@@ -538,6 +667,8 @@
 		66CD26E521104E41000283AD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4F481A8E2117F1EC009B701F /* UIColor+Extension.h */,
+				4F481A8F2117F1EC009B701F /* UIColor+Extension.m */,
 				66CD26E621104E52000283AD /* UIView+Extension.h */,
 				66CD26E721104E52000283AD /* UIView+Extension.m */,
 				669F9DF12114340F00ADC556 /* UITableView+emptyData.h */,
@@ -557,10 +688,19 @@
 			path = "Login Regist";
 			sourceTree = "<group>";
 		};
+		72834770D2BFDA7F1046D5FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7172D79740C51DA6E30F9708 /* Pods-jizhang.debug.xcconfig */,
+				D9F9EB02A15C8068ACAB7F19 /* Pods-jizhang.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8736DF4A2110AB3B007A6AD5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				669F9E9021184F1800ADC556 /* BaseNetWork */,
+
 				8736DF4B2110AB6C007A6AD5 /* BaseVC */,
 				66CD26E521104E41000283AD /* Category */,
 				66CD26DE21104558000283AD /* MainTabBar */,
@@ -589,6 +729,14 @@
 			path = "Other Files";
 			sourceTree = "<group>";
 		};
+		A4E2F57DE130CEB7FA27EB57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -596,9 +744,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66CD26D021104406000283AD /* Build configuration list for PBXNativeTarget "jizhang" */;
 			buildPhases = (
+				57A3E4495F0ED24D3E492E1C /* [CP] Check Pods Manifest.lock */,
 				66CD26A021104401000283AD /* Sources */,
 				66CD26A121104401000283AD /* Frameworks */,
 				66CD26A221104401000283AD /* Resources */,
+				F023A240AF3B3276DF95862A /* [CP] Embed Pods Frameworks */,
+				09CF231BE0DA70A762D0E147 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -657,19 +808,22 @@
 				TargetAttributes = {
 					66CD26A321104401000283AD = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 					};
 					66CD26BB21104406000283AD = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 66CD26A321104401000283AD;
 					};
 					66CD26C621104406000283AD = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 66CD26A321104401000283AD;
 					};
 				};
 			};
 			buildConfigurationList = 66CD269F21104401000283AD /* Build configuration list for PBXProject "jizhang" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -716,6 +870,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09CF231BE0DA70A762D0E147 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jizhang/Pods-jizhang-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57A3E4495F0ED24D3E492E1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F023A240AF3B3276DF95862A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jizhang/Pods-jizhang-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		66CD26A021104401000283AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -726,13 +928,18 @@
 				669F9E992118503300ADC556 /* BaseNetService.m in Sources */,
 				669F9E482118046400ADC556 /* NSBundle+MJRefresh.m in Sources */,
 				66CD274621116102000283AD /* QZRegisterViewController.m in Sources */,
+				4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */,
+				4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */,
 				66CD26F121105575000283AD /* QZPublishViewController.m in Sources */,
-				669F9E3F2118046400ADC556 /* MJRefreshAutoStateFooter.m in Sources */,
+
 				66CD26E821104E52000283AD /* UIView+Extension.m in Sources */,
+				4F481A9E21182A87009B701F /* QZAccountTableView.m in Sources */,
 				66CD273821106A07000283AD /* QZMineViewController.m in Sources */,
 				669F9E412118046400ADC556 /* MJRefreshBackNormalFooter.m in Sources */,
 				669F9E8F21184ECA00ADC556 /* AFURLSessionManager.m in Sources */,
 				669F9DAB2112FE4D00ADC556 /* QZYuSuanSettingController.m in Sources */,
+				4F481AA721183E26009B701F /* QZPublishNaviTopView.m in Sources */,
+				4F481A902117F1EC009B701F /* UIColor+Extension.m in Sources */,
 				669F9DF6211447B100ADC556 /* QZJiZhangSettingCell.m in Sources */,
 				669F9E392118046400ADC556 /* MJRefreshBackFooter.m in Sources */,
 				8736DF4E2110AB81007A6AD5 /* QZBaseViewController.m in Sources */,
@@ -741,12 +948,13 @@
 				66CD2735211069FA000283AD /* QZFlowViewController.m in Sources */,
 				669F9E452118046400ADC556 /* MJRefreshStateHeader.m in Sources */,
 				66CD26E121104580000283AD /* MainTabBarViewController.m in Sources */,
+				4F481AA121182E43009B701F /* QZAccountHeaderView.m in Sources */,
 				669F9DF02114237D00ADC556 /* QZMineBottomCell.m in Sources */,
 				66CD26B721104406000283AD /* main.m in Sources */,
 				669F9E3A2118046400ADC556 /* MJRefreshComponent.m in Sources */,
 				669F9E3C2118046400ADC556 /* MJRefreshHeader.m in Sources */,
 				66CD26EB21105444000283AD /* QZBillViewController.m in Sources */,
-				669F9E3D2118046400ADC556 /* MJRefreshAutoGifFooter.m in Sources */,
+
 				669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */,
 				669F9E072117F96800ADC556 /* QZBillTopHead.m in Sources */,
 				66CD2743211160F4000283AD /* QZLoginViewController.m in Sources */,
@@ -767,9 +975,7 @@
 				669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */,
 				669F9E8A21184ECA00ADC556 /* AFHTTPSessionManager.m in Sources */,
 				66CD26A921104401000283AD /* AppDelegate.m in Sources */,
-				669F9E8D21184ECA00ADC556 /* AFURLRequestSerialization.m in Sources */,
-				669F9E8B21184ECA00ADC556 /* AFNetworkReachabilityManager.m in Sources */,
-				669F9E8E21184ECA00ADC556 /* AFURLResponseSerialization.m in Sources */,
+
 				669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -937,17 +1143,16 @@
 		};
 		66CD26D121104406000283AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7172D79740C51DA6E30F9708 /* Pods-jizhang.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P98QFX6DCD;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/jizhang/Other Files/PrefixHeader.pch";
 				INFOPLIST_FILE = jizhang/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qzxq.jizhang;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qzi.meiCFL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -955,17 +1160,16 @@
 		};
 		66CD26D221104406000283AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9F9EB02A15C8068ACAB7F19 /* Pods-jizhang.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P98QFX6DCD;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/jizhang/Other Files/PrefixHeader.pch";
 				INFOPLIST_FILE = jizhang/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qzxq.jizhang;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qzi.meiCFL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -977,11 +1181,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = jizhangTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qzxq.jizhangTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -995,11 +1195,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = jizhangTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qzxq.jizhangTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1012,11 +1208,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = jizhangUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qzxq.jizhangUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1029,11 +1221,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = jizhangUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qzxq.jizhangUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
