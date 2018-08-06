@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F481A8D2117F090009B701F /* QZChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8C2117F090009B701F /* QZChartView.m */; };
 		4F481A902117F1EC009B701F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8F2117F1EC009B701F /* UIColor+Extension.m */; };
-		4F481A952117F37E009B701F /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A942117F37E009B701F /* QZWidgetTool.m */; };
-		4F481A982118158E009B701F /* QZNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A972118158E009B701F /* QZNaviTopView.m */; };
 		4F481A9E21182A87009B701F /* QZAccountTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A9D21182A87009B701F /* QZAccountTableView.m */; };
 		4F481AA121182E43009B701F /* QZAccountHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA021182E43009B701F /* QZAccountHeaderView.m */; };
 		4F481AA721183E26009B701F /* QZPublishNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA621183E26009B701F /* QZPublishNaviTopView.m */; };
 		4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA921184FA4009B701F /* QZPublishInputView.m */; };
 		4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */; };
 		5673CE08779EEB6F693863AD /* libPods-jizhang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */; };
+		662F27122118719C0059E09D /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F27112118719C0059E09D /* QZWidgetTool.m */; };
+		662F271E211873300059E09D /* BaseNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F271D211873300059E09D /* BaseNetService.m */; };
 		669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA32112F19700ADC556 /* QZMineTopHead.m */; };
 		669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA72112FE3000ADC556 /* QZJiZhangSettingController.m */; };
 		669F9DAB2112FE4D00ADC556 /* QZYuSuanSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DAA2112FE4D00ADC556 /* QZYuSuanSettingController.m */; };
@@ -30,9 +29,7 @@
 		669F9E3A2118046400ADC556 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E102118046400ADC556 /* MJRefreshComponent.m */; };
 		669F9E3B2118046400ADC556 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E122118046400ADC556 /* MJRefreshFooter.m */; };
 		669F9E3C2118046400ADC556 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E142118046400ADC556 /* MJRefreshHeader.m */; };
-		669F9E3D2118046400ADC556 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E192118046400ADC556 /* MJRefreshAutoGifFooter.m */; };
 		669F9E3E2118046400ADC556 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E1B2118046400ADC556 /* MJRefreshAutoNormalFooter.m */; };
-		669F9E3F2118046400ADC556 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E1D2118046400ADC556 /* MJRefreshAutoStateFooter.m */; };
 		669F9E402118046400ADC556 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E202118046400ADC556 /* MJRefreshBackGifFooter.m */; };
 		669F9E412118046400ADC556 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E222118046400ADC556 /* MJRefreshBackNormalFooter.m */; };
 		669F9E422118046400ADC556 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E242118046400ADC556 /* MJRefreshBackStateFooter.m */; };
@@ -47,10 +44,7 @@
 		669F9E4B2118046400ADC556 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E372118046400ADC556 /* UIView+MJExtension.m */; };
 		669F9E4E2118359B00ADC556 /* QZBillBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E4D2118359B00ADC556 /* QZBillBottomCell.m */; };
 		669F9E8A21184ECA00ADC556 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E7E21184EC900ADC556 /* AFHTTPSessionManager.m */; };
-		669F9E8B21184ECA00ADC556 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E8121184EC900ADC556 /* AFNetworkReachabilityManager.m */; };
 		669F9E8C21184ECA00ADC556 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E8321184EC900ADC556 /* AFSecurityPolicy.m */; };
-		669F9E8D21184ECA00ADC556 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E8521184EC900ADC556 /* AFURLRequestSerialization.m */; };
-		669F9E8E21184ECA00ADC556 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E8721184EC900ADC556 /* AFURLResponseSerialization.m */; };
 		669F9E8F21184ECA00ADC556 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E8921184EC900ADC556 /* AFURLSessionManager.m */; };
 		669F9E992118503300ADC556 /* BaseNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E982118503300ADC556 /* BaseNetService.m */; };
 		669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E9C21185A1300ADC556 /* QZBillModel.m */; };
@@ -98,8 +92,6 @@
 		4F481A8C2117F090009B701F /* QZChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZChartView.m; sourceTree = "<group>"; };
 		4F481A8E2117F1EC009B701F /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		4F481A8F2117F1EC009B701F /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
-		4F481A932117F37E009B701F /* QZWidgetTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
-		4F481A942117F37E009B701F /* QZWidgetTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
 		4F481A962118158E009B701F /* QZNaviTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZNaviTopView.h; sourceTree = "<group>"; };
 		4F481A972118158E009B701F /* QZNaviTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZNaviTopView.m; sourceTree = "<group>"; };
 		4F481A9C21182A87009B701F /* QZAccountTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZAccountTableView.h; sourceTree = "<group>"; };
@@ -112,6 +104,10 @@
 		4F481AA921184FA4009B701F /* QZPublishInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputView.m; sourceTree = "<group>"; };
 		4F481AAB211855FE009B701F /* QZPublishInputCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPublishInputCollectionCell.h; sourceTree = "<group>"; };
 		4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputCollectionCell.m; sourceTree = "<group>"; };
+		662F27102118719C0059E09D /* QZWidgetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
+		662F27112118719C0059E09D /* QZWidgetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
+		662F271C211873300059E09D /* BaseNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetService.h; sourceTree = "<group>"; };
+		662F271D211873300059E09D /* BaseNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetService.m; sourceTree = "<group>"; };
 		669F9DA22112F19700ADC556 /* QZMineTopHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZMineTopHead.h; sourceTree = "<group>"; };
 		669F9DA32112F19700ADC556 /* QZMineTopHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZMineTopHead.m; sourceTree = "<group>"; };
 		669F9DA62112FE3000ADC556 /* QZJiZhangSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZJiZhangSettingController.h; sourceTree = "<group>"; };
@@ -184,7 +180,6 @@
 		669F9E8721184EC900ADC556 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		669F9E8821184EC900ADC556 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		669F9E8921184EC900ADC556 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		669F9E972118503300ADC556 /* BaseNetService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNetService.h; sourceTree = "<group>"; };
 		669F9E982118503300ADC556 /* BaseNetService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNetService.m; sourceTree = "<group>"; };
 		669F9E9B21185A1300ADC556 /* QZBillModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZBillModel.h; sourceTree = "<group>"; };
 		669F9E9C21185A1300ADC556 /* QZBillModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZBillModel.m; sourceTree = "<group>"; };
@@ -285,15 +280,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4F481A912117F32E009B701F /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				4F481A932117F37E009B701F /* QZWidgetTool.h */,
-				4F481A942117F37E009B701F /* QZWidgetTool.m */,
-			);
-			path = Tool;
-			sourceTree = "<group>";
-		};
 		4F481A9921182841009B701F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +334,32 @@
 				66CD26F021105575000283AD /* QZPublishViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		662F270E211871800059E09D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				669F9E982118503300ADC556 /* BaseNetService.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		662F270F2118719C0059E09D /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				662F27102118719C0059E09D /* QZWidgetTool.h */,
+				662F27112118719C0059E09D /* QZWidgetTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		662F271B211873300059E09D /* BaseNetWork */ = {
+			isa = PBXGroup;
+			children = (
+				662F271C211873300059E09D /* BaseNetService.h */,
+				662F271D211873300059E09D /* BaseNetService.m */,
+			);
+			path = BaseNetWork;
 			sourceTree = "<group>";
 		};
 		669F9DA12112F15A00ADC556 /* View */ = {
@@ -521,15 +533,6 @@
 			path = "../../../../../../Downloads/AFNetworking-master/AFNetworking";
 			sourceTree = "<group>";
 		};
-		669F9E9021184F1800ADC556 /* BaseNetWork */ = {
-			isa = PBXGroup;
-			children = (
-				669F9E972118503300ADC556 /* BaseNetService.h */,
-				669F9E982118503300ADC556 /* BaseNetService.m */,
-			);
-			path = BaseNetWork;
-			sourceTree = "<group>";
-		};
 		669F9E9A211859FC00ADC556 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +551,7 @@
 				66CD26A521104401000283AD /* Products */,
 				72834770D2BFDA7F1046D5FD /* Pods */,
 				A4E2F57DE130CEB7FA27EB57 /* Frameworks */,
+				662F270E211871800059E09D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -700,7 +704,8 @@
 		8736DF4A2110AB3B007A6AD5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-
+				662F271B211873300059E09D /* BaseNetWork */,
+				662F270F2118719C0059E09D /* Tool */,
 				8736DF4B2110AB6C007A6AD5 /* BaseVC */,
 				66CD26E521104E41000283AD /* Category */,
 				66CD26DE21104558000283AD /* MainTabBar */,
@@ -931,7 +936,6 @@
 				4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */,
 				4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */,
 				66CD26F121105575000283AD /* QZPublishViewController.m in Sources */,
-
 				66CD26E821104E52000283AD /* UIView+Extension.m in Sources */,
 				4F481A9E21182A87009B701F /* QZAccountTableView.m in Sources */,
 				66CD273821106A07000283AD /* QZMineViewController.m in Sources */,
@@ -954,7 +958,7 @@
 				669F9E3A2118046400ADC556 /* MJRefreshComponent.m in Sources */,
 				669F9E3C2118046400ADC556 /* MJRefreshHeader.m in Sources */,
 				66CD26EB21105444000283AD /* QZBillViewController.m in Sources */,
-
+				662F271E211873300059E09D /* BaseNetService.m in Sources */,
 				669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */,
 				669F9E072117F96800ADC556 /* QZBillTopHead.m in Sources */,
 				66CD2743211160F4000283AD /* QZLoginViewController.m in Sources */,
@@ -971,11 +975,11 @@
 				669F9E3B2118046400ADC556 /* MJRefreshFooter.m in Sources */,
 				66CD26EE21105463000283AD /* QZChartViewController.m in Sources */,
 				669F9E442118046400ADC556 /* MJRefreshNormalHeader.m in Sources */,
+				662F27122118719C0059E09D /* QZWidgetTool.m in Sources */,
 				669F9DFA21145FC600ADC556 /* QZPickView.m in Sources */,
 				669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */,
 				669F9E8A21184ECA00ADC556 /* AFHTTPSessionManager.m in Sources */,
 				66CD26A921104401000283AD /* AppDelegate.m in Sources */,
-
 				669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
