@@ -6,11 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "touxiang.png",
+      "filename" : "图表点击前@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "图表点击前@3x.png",
       "scale" : "3x"
     }
   ],

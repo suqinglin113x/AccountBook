@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableView (emptyData)
-- (void)noDataViewWitMsg:(NSString *)message forRows:(NSUInteger)rows;
+@protocol UITableViewNoDataDelegate <NSObject>
+- (void)loginOfNoDataView;
+@end
 
+@interface UITableView (emptyData)
+/** 展示暂无数据页面*/
+- (void)showNoDataViewImg:(NSString *)imageName text:(NSString *)hint btn:(NSString *)btnTitle;
+
+/** 隐藏暂无数据页面*/
+- (void)hideNoDataView;
+
+@property (nonatomic, weak) id <UITableViewNoDataDelegate> no_delegate;
 @end

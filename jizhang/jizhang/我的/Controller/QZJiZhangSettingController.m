@@ -131,7 +131,7 @@
         content.subtitle = @"我是副标题";
         content.body = @"我是内容";
         content.sound = [UNNotificationSound defaultSound];
-        content.badge = @1;
+        content.badge = @0;
         
         NSDateComponents *dateCom = [[NSDateComponents alloc] init];
         

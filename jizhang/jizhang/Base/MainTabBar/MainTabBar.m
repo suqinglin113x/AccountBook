@@ -23,8 +23,8 @@
         
         // 添加发布按钮
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [publishButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
-        [publishButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateHighlighted];
+        [publishButton setBackgroundImage:[UIImage imageNamed:@"添加"] forState:UIControlStateNormal];
+        [publishButton setBackgroundImage:[UIImage imageNamed:@"添加"] forState:UIControlStateHighlighted];
         [publishButton addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
         
         publishButton.size = publishButton.currentBackgroundImage.size;

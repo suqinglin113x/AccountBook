@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UIImageView *iconImageV;
 
 @property (nonatomic, strong) UILabel *contentL;
-
+@property (nonatomic, strong) UILabel *detailL;
 @property (nonatomic, strong) UIImageView *arrowIv;
 @end
 
@@ -41,17 +41,25 @@
 
 - (void)setupCellInterface
 {
-
+    self.contentView.backgroundColor = [UIColor whiteColor];
+    
     self.iconImageV = [[UIImageView alloc] init];
     [self.contentView addSubview:self.iconImageV];
     
     self.contentL = [[UILabel alloc] init];
     self.contentL.textAlignment = 0;
-    self.contentL.font = [UIFont systemFontOfSize:13 *kScale];
+    self.contentL.font = [UIFont systemFontOfSize:14 *kScale];
     [self.contentView addSubview:self.contentL];
     
+    self.detailL = [[UILabel alloc] init];
+    [self.contentView addSubview:self.detailL];
+    self.detailL.textAlignment = 2;
+    self.detailL.font = [UIFont systemFontOfSize:12 *kScale];
+    self.detailL.textColor = UIColorFromHex(0x666666);
+    self.detailL.text = @"版本号v0.0.1";
+    
     self.arrowIv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow_right"]];
-    [self.contentView addSubview:self.arrowIv];
+//    [self.contentView addSubview:self.arrowIv];
     
 }
 
@@ -65,6 +73,9 @@
     self.contentL.frame = CGRectMake(CGRectGetMaxX(self.iconImageV.frame) + 10 *kScale, 0, 200 *kScale, 30 *kScale);
     self.contentL.centerY = self.contentView.centerY;
     
+    self.detailL.frame = CGRectMake(kScreenWidth - 150 *kScale, 0, 130 *kScale, 30 *kScale);
+    self.detailL.centerY = self.contentView.centerY;
+    
     self.arrowIv.frame = CGRectMake(kScreenWidth - 50*kScale, 0, 25 *kScale, 25 *kScale);
     self.arrowIv.centerY = self.contentView.centerY;
 }
@@ -72,5 +83,8 @@
 {
     self.iconImageV.image = [UIImage imageNamed:dic[@"icon"]];
     self.contentL.text = dic[@"title"];
+    if ([dic[@"title"] isEqualToString:@"退出登录"]) {
+        self.detailL.hidden = YES;
+    }
 }
 @end
