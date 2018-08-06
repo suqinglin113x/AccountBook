@@ -1,22 +1,23 @@
 //
-//  QZMyViewController.m
+//  QZYuSuanSettingController.m
 //  jizhang
 //
-//  Created by Adam on 2018/7/31.
+//  Created by Adam on 2018/8/2.
 //  Copyright © 2018年 qzxq. All rights reserved.
 //
 
-#import "QZMyViewController.h"
+#import "QZYuSuanSettingController.h"
 
-@interface QZMyViewController ()
+@interface QZYuSuanSettingController ()
 
 @end
 
-@implementation QZMyViewController
+@implementation QZYuSuanSettingController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"预算设置";
 }
 
 - (void)didReceiveMemoryWarning {
