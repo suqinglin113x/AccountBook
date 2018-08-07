@@ -32,13 +32,9 @@
     self.navigationController.navigationBarHidden = YES;
     
     [self.view addSubview:self.tableView];
-    
-//    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
-//        [self loadData];
-//    } else {
-//        [self.tableView showNoDataViewImg:@"记账2" text:@"每一笔账，都是生活的点滴" btn:@"登录"];
-//        self.topHead.dict = nil;
-//    }
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
+        [self loadData];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -67,7 +63,6 @@
 #pragma mark - action
 - (void)loadData
 {
-    
     //
     NSString *urlStr = @"http://192.168.1.185/zhangben/public/api/account/billwater";
     NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]];
@@ -107,7 +102,6 @@
         }
         self.topHead.itemTitle = @"日常";
         [self loadData];
-        
     }];
 }
 
@@ -150,7 +144,6 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    
     UIView *bg = [UIView new];
     bg.backgroundColor = UIColorFromHex(0xf8f8f8);
     UILabel *timeL = [UILabel new];
@@ -167,7 +160,6 @@
 - (void)toLogin
 {
     
-    [self.tableView hideNoDataView];
     if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
         // 同步数据
         [self loadData];
@@ -188,9 +180,7 @@
 #pragma mark -- QZBillPickViewDelegate ---
 - (void)pickWithItem:(NSString *)item
 {
-    NSLog(@"%@", item);
     // 筛选数组
-    
     self.dataArr = [self.datasource mutableCopy];
     [self.datasource enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         QZBillModel *model = (QZBillModel *)obj;

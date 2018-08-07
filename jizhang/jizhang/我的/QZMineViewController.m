@@ -33,22 +33,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     self.navigationController.navigationBarHidden = YES;
     
     self.topHead = [[QZMineTopHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
     self.topHead.m_delegate = self;
     self.tableView.tableHeaderView = self.topHead;
     
-    // 取userID
-    NSString *statusStr;
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
-        // 已登录
-        statusStr =  @"小奇\n欢迎来到记账簿";
-    } else {
-        // 未登录
-        statusStr = @"立即登录\n";
-    }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -56,6 +46,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+#pragma mark -- table --
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.contents.count;
@@ -76,21 +67,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1 && [[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
-        // 退出登录
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"退出" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self showHint:@"已退出"];
-            // 清除userId
-            [[NSUserDefaults standardUserDefaults] setValue:nil forKey:USERID_KEY];
-            
-            [self.topHead topWithStatus:@"立即登录\n"];
-            [self viewWillAppear:YES];
-        }];
-        [alertVC addAction:cancle]; [alertVC addAction:sure];
-        [self presentViewController:alertVC animated:YES completion:nil];
+        [self logout];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -118,6 +95,28 @@
     [self.navigationController pushViewController:loginV animated:YES];
 }
 
+#pragma mark -- method --
+/** 退出登录*/
+- (void)logout
+{
+    // 退出登录
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"退出" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showHint:@"已退出"];
+        // 清除userId
+        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:USERID_KEY];
+        
+//        [self.topHead topWithStatus:@"立即登录\n"];
+        [self viewWillAppear:YES];
+    }];
+    [alertVC addAction:cancle]; [alertVC addAction:sure];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+#pragma mark -- lazy --
 - (UITableView *)tableView
 {
     if (_tableView == nil) {

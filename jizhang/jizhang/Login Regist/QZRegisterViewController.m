@@ -27,7 +27,7 @@
     
     
     NSArray *placeTexts = @[@"请输入手机号", @"设置密码"];
-    CGFloat h = 60 *kScale;
+    CGFloat h = 50 *kScale;
     
     for (NSInteger i = 0; i < 2; i ++) {
         UITextField *textF = [[UITextField alloc] init];
@@ -35,6 +35,7 @@
         textF.placeholder = placeTexts[i];
         textF.tag = i;
         textF.frame = CGRectMake(5*kScale, 15 *kScale + i *(h +1), kScreenWidth - 10 *kScale *kScale, h);
+        textF.font = [UIFont systemFontOfSize:15 *kScale];
         textF.clearButtonMode = UITextFieldViewModeWhileEditing;
         textF.delegate = self;
         [self.view addSubview:textF];
@@ -47,6 +48,9 @@
             textF.rightView = eyeBtn;
             textF.rightViewMode = UITextFieldViewModeAlways;
             textF.secureTextEntry = YES;
+        } else {
+            
+            textF.keyboardType = UIKeyboardTypeNumberPad;
         }
         
     }
@@ -55,7 +59,7 @@
     registBtn.frame = CGRectMake(20 *kScale, 10 *kScale + 2 *h + 30 *kScale, kScreenWidth - 40 *kScale, 45 *kScale);
     registBtn.backgroundColor = UIColorFromHex(0xffde01);
     registBtn.layer.cornerRadius = 5 *kScale;
-    [registBtn setTitle:@"立即注册" forState:UIControlStateNormal];
+    [registBtn setTitle:@"快速注册" forState:UIControlStateNormal];
     [registBtn.titleLabel setFont:[UIFont systemFontOfSize:15 *kScale]];
     [registBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [registBtn addTarget:self action:@selector(registBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -80,8 +84,8 @@
 {
     [self.view endEditing:YES];
     
-    if (mobileNum.length <= 0 ) {
-        [self showHint:@"请输入手机号"];
+    if (mobileNum.length <= 0 || !(mobileNum.isMobilePhone)) {
+        [self showHint:@"请检验手机号"];
         return;
     }
     if (pasNum.length == 0) {

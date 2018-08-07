@@ -24,5 +24,6 @@
 #import "UIColor+Extension.h"
 
 #import <IQKeyboardManager.h>
+#import "NSString+RegexCategory.h"
 
 #endif /* PrefixHeader_pch */

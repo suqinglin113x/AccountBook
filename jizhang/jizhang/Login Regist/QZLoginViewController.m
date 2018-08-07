@@ -65,6 +65,9 @@
             textF.rightView = eyeBtn;
             textF.rightViewMode = UITextFieldViewModeAlways;
             textF.secureTextEntry = YES;
+        } else {
+            
+            textF.keyboardType = UIKeyboardTypeNumberPad;
         }
         
     }
@@ -139,7 +142,7 @@
     [self.view endEditing:YES];
     
     if (mobileNum.length <= 0 ) {
-        [self showHint:@"请输入手机号"];
+        [self showHint:@"请检验手机号"];
         return;
     }
     if (pasNum.length == 0) {
@@ -164,6 +167,7 @@
             
             //
             [self.navigationController popViewControllerAnimated:YES];
+            
             
         } else {
             [self showHint:responseObject[@"msg"]];

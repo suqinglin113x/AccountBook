@@ -89,10 +89,6 @@
     
 }
 
-- (void)topWithStatus:(NSString *)statusStr
-{
-    
-}
 - (void)headViewClick
 {
     NSLog(@"去登录了");
