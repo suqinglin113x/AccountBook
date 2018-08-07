@@ -18,4 +18,7 @@
 //账单流水
 + (void)getAccountDataWithParams:(NSDictionary *)params block:(void(^)(QZAccountBaseModel *baseModel, NSError *error))block;
 
+//发布
++ (void)postPublishDataWithParams:(NSDictionary *)params block:(void(^)(QZBaseModel *baseModel, NSError *error))block;
+
 @end

@@ -17,10 +17,9 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
 
 @implementation QZAccountTableView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    self = [super initWithFrame:frame style:style];
     if (self) {
-//        self.backgroundColor = [UIColor whiteColor];
         self.dataSource = self;
         self.delegate = self;
         if (@available(iOS 11.0, *)) {
@@ -30,7 +29,6 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
     }
     return self;
 }
-
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 

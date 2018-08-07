@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QZChartListModel.h"
 
 @interface QZPublishInputView : UIView
 
 @property (nonatomic, strong) NSArray *dataArr;
 
 - (void)fieldResignFirstResponder;
+- (NSDictionary *)getChoiceItem;
 
 @end

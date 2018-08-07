@@ -40,4 +40,18 @@
     }];
 }
 
+//发布
++ (void)postPublishDataWithParams:(NSDictionary *)params block:(void(^)(QZBaseModel *baseModel, NSError *error))block {
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZPublishUrl] parameters:params success:^(id responseObject) {
+        if (block) {
+            QZBaseModel *baseModel = [QZBaseModel yy_modelWithJSON:responseObject];
+            block(baseModel,nil);
+        }
+    } failure:^(NSError *error) {
+        if (block) {
+            block(nil,error);
+        }
+    }];
+}
+
 @end

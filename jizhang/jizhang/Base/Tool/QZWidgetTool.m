@@ -10,6 +10,18 @@
 
 @implementation QZWidgetTool
 
+//获取当前的时间
++ (NSString*)getCurrentTimes{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDate *datenow = [NSDate date];
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NALog(@"currentTimeString =  %@",currentTimeString);
+    return currentTimeString;
+}
+
+
+#pragma mark - control
 + (UILabel *)creatLabelWithText:(NSString *)text font:(CGFloat)font color:(UIColor *)color alignment:(NSTextAlignment)alignment {
     UILabel *label = [[UILabel alloc] init];
     label.text = text;

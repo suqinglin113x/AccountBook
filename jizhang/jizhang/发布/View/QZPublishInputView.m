@@ -166,6 +166,14 @@ static NSString * collectionFooterIdentifier = @"publishCollectionFooterIdentifi
     return nil;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    NSString *imgName = [NSString stringWithFormat:@"icon_%@",self.dataArr[indexPath.item]];
+    self.iconView.image = [UIImage imageNamed:imgName];
+    self.choiceLbl.text = self.dataArr[indexPath.item];
+    
+}
+
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
@@ -227,4 +235,10 @@ static NSString * collectionFooterIdentifier = @"publishCollectionFooterIdentifi
 - (void)fieldResignFirstResponder {
     [self.inputField resignFirstResponder];
 }
+
+- (NSDictionary *)getChoiceItem {
+    NSDictionary *dic = @{@"item":self.choiceLbl.text,@"money":self.inputField.text};
+    return dic;
+}
+
 @end

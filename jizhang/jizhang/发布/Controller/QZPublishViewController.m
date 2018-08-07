@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) QZPublishNaviTopView *topView;
 @property (nonatomic, strong) QZPublishInputView *inputView;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, strong) NSDictionary *choiceDic;
 
 @end
 
@@ -43,8 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-
+    self.type = @"2";
     [self.view addSubview:self.topView];
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self.view);
@@ -60,27 +61,47 @@
     
 }
 
-
+- (void)dissMiss {
+    [self.inputView fieldResignFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - QZPublishNaviTopViewDelegate
 
 - (void)cancelTopClick {
     NSLog(@"cancel");
-    [self.inputView fieldResignFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dissMiss];
 }
 
 - (void)saveTopClick {
     NSLog(@"sure");
+    self.choiceDic = [self.inputView getChoiceItem];
+    NSString *money = self.choiceDic[@"money"];
+    if (money.length <= 0 || money.floatValue <= 0) {
+        NALog(@"请输入金额");
+    }else {
+        NSDictionary *dict = @{@"userId":@"1",@"type":self.type,@"time":[QZWidgetTool getCurrentTimes],@"remark":@""};
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:dict];
+        [dic addEntriesFromDictionary:self.choiceDic];
+        
+        [QZNetTool postPublishDataWithParams:dic.mutableCopy block:^(QZBaseModel *baseModel, NSError *error) {
+            if (baseModel.code.integerValue == 200) {
+                [self dissMiss];
+            }
+        }];
+    }
+
 }
 
 - (void)showPublishTopExpend {
     NSLog(@"00000000000");
     self.inputView.dataArr = kArrayExpend;
+    self.type = @"2";
 }
 
 - (void)showPublishTopIncome {
     NSLog(@"111111111111");
     self.inputView.dataArr = kArrayIncome;
+    self.type = @"1";
 }
 
 @end

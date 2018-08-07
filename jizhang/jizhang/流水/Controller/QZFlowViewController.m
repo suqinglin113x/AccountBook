@@ -19,7 +19,10 @@
 
 - (QZAccountTableView *)mainView {
     if (_mainView == nil) {
-        _mainView = [[QZAccountTableView alloc] initWithFrame:self.view.bounds];
+        _mainView = [[QZAccountTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _mainView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self loadData];
+        }];
     }
     return _mainView;
 }
@@ -44,10 +47,16 @@
     NSDictionary *dict = @{@"userId":@"1"};
     //    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
     [QZNetTool getAccountDataWithParams:dict block:^(QZAccountBaseModel *baseModel, NSError *error) {
-        if (baseModel.code.integerValue == 200) {
-            QZAccountModel *model = baseModel.data;
-            self.mainView.model = model;
+        if (error) {
+            [self.mainView.mj_header endRefreshing];
+        }else {
+            if (baseModel.code.integerValue == 200) {
+                QZAccountModel *model = baseModel.data;
+                self.mainView.model = model;
+            }
+            [self.mainView.mj_header endRefreshing];
         }
+        
     }];
     
     
