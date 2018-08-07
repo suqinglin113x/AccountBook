@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "Macro.h"
 #import "UIView+Extension.h"
+#import "UIViewController+HUD.h"
 
 #import "QZBaseViewController.h"
 #import "MJRefresh.h"
@@ -21,4 +22,7 @@
 #import "Masonry.h"
 #import "QZWidgetTool.h"
 #import "UIColor+Extension.h"
+
+#import <IQKeyboardManager.h>
+
 #endif /* PrefixHeader_pch */

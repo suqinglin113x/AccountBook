@@ -9,12 +9,15 @@
 #import "QZLoginViewController.h"
 #import "QZRegisterViewController.h"
 
-@interface QZLoginViewController ()
+@interface QZLoginViewController () <UITextFieldDelegate>
 
 @end
 
 @implementation QZLoginViewController
-
+{
+    NSString *mobileNum;
+    NSString *pasNum;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -23,11 +26,13 @@
     self.navigationItem.title = @"登录";
     UIButton  *rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightItem setTitle:@"注册" forState:UIControlStateNormal];
+    [rightItem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightItem addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
     
     [self setupTopUI];
-    [self setupBottomQuickLoginUI];
+    
+//    [self setupBottomQuickLoginUI];
 }
 
 - (void)setupTopUI
@@ -51,7 +56,7 @@
         lab.text = leftTexts[i];
         lab.textAlignment = 1;
         [self.view addSubview:textF];
-        
+        textF.delegate = self;
         if (i == 1) {
             UIButton *eyeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             eyeBtn.bounds = CGRectMake(0, 0, 50*kScale, 30 *kScale);
@@ -66,7 +71,7 @@
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     loginBtn.frame = CGRectMake(20 *kScale, 10 *kScale + 2 *h + 30 *kScale, kScreenWidth - 40 *kScale, 45 *kScale);
-    loginBtn.backgroundColor = [UIColor redColor];
+    loginBtn.backgroundColor = UIColorFromHex(0xffde01);
     loginBtn.layer.cornerRadius = 5 *kScale;
     [loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
     [loginBtn.titleLabel setFont:[UIFont systemFontOfSize:15 *kScale]];
@@ -82,7 +87,7 @@
     [forgetBtn.titleLabel setFont:[UIFont systemFontOfSize:13 *kScale]];
     [forgetBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [forgetBtn addTarget:self action:@selector(forgetBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:forgetBtn];
+//    [self.view addSubview:forgetBtn];
 }
 
 - (void)setupBottomQuickLoginUI
@@ -131,7 +136,52 @@
 /** 登录*/
 - (void)loginBtnClick
 {
+    [self.view endEditing:YES];
     
+    if (mobileNum.length <= 0 ) {
+        [self showHint:@"请输入手机号"];
+        return;
+    }
+    if (pasNum.length == 0) {
+        [self showHint:@"请输入密码"];
+        return;
+    }
+    
+    
+    NSString *url = @"http://192.168.1.185/zhangben/public/api/account/login";
+    NSDictionary *dict = @{
+                           @"mobile" : mobileNum,
+                           @"password" : pasNum
+                           };
+    [[BaseNetService sharedManager] POST:url parameters:dict success:^(id responseObject) {
+        if ([responseObject[@"code"] isEqualToString:@"200"]) {
+            
+            [self showHint:responseObject[@"msg"]];
+            NSLog(@"哈哈:%@",responseObject);
+            
+            // 存userId
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"userId"] forKey:USERID_KEY];
+            
+            //
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } else {
+            [self showHint:responseObject[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        [self showHint:@"网络请求错误,请稍后再试"];
+    }];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField.tag == 0) {
+        // 手机号
+        mobileNum = textField.text;
+    } else if (textField.tag== 1 ) {
+        // pas
+        pasNum = textField.text;
+    }
 }
 
 /** 忘记密码*/

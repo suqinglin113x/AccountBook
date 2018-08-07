@@ -25,4 +25,7 @@
 #define kNavBarAndStatusBarHeight (kStatusBarHeight + kNavBarHeigth)
 #define kNAFont(size)      [UIFont systemFontOfSize:size * kScale]
 
+
+#define USERID_KEY @"userId"
+
 #endif /* Macro_h */

@@ -10,6 +10,9 @@
 
 @implementation QZMineTopHead
 
+{
+    UILabel *label;
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame: frame];
@@ -36,17 +39,26 @@
     headIv.layer.cornerRadius = headIv.width *0.5;
     headIv.layer.masksToBounds = YES;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, headIv.bottom, kScreenWidth *0.7, 60 *kScale)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0, headIv.bottom, kScreenWidth *0.7, 60 *kScale)];
     label.centerX = headView.centerX;
     label.textColor = UIColorFromHex(0x333333);
     label.font = [UIFont fontWithName:@"HelveticaInserat-Roman-SemiB" size:35 *kScale];
-    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@"小奇\n欢迎来到记账簿"];
+    
+    // 取userID
+    NSString *statusStr;
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
+        // 已登录
+        statusStr =  @"小奇\n欢迎来到记账簿";
+    } else {
+        // 未登录
+        statusStr = @"立即登录\n";
+    }
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:statusStr];
     NSRange range = [attri.string rangeOfString:@"\n"];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 8 *kScale;
     [attri addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attri.length)];
     [attri addAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"PingFang-SC-Regular" size:15 *kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
-    
     label.attributedText = attri;
     label.numberOfLines = 2;
     label.textAlignment = 1;
@@ -77,9 +89,14 @@
     
 }
 
+- (void)topWithStatus:(NSString *)statusStr
+{
+    
+}
 - (void)headViewClick
 {
     NSLog(@"去登录了");
+    
     if ([self.m_delegate respondsToSelector:@selector(toLogin)]) {
         [self.m_delegate toLogin];
     }

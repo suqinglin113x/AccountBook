@@ -16,7 +16,7 @@
 
 + (void)initialize
 {
-    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].tintColor = [UIColor blackColor];
     [UINavigationBar appearance].barTintColor = UIColorFromHex(0xffde01);
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:17 *kScale]};
     

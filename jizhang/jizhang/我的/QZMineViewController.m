@@ -17,6 +17,7 @@
 <UITableViewDataSource, UITableViewDelegate, QZMineTopHeadDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *contents;
+@property (nonatomic, strong) QZMineTopHead *topHead;
 @end
 
 @implementation QZMineViewController
@@ -27,23 +28,6 @@
     
     [self.view addSubview:self.tableView];
     
-    QZMineTopHead *topHead = [[QZMineTopHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
-    topHead.m_delegate = self;
-    self.tableView.tableHeaderView = topHead;
-    
-    __weak typeof(self)weakSelf = self;
-    topHead.setingBlock = ^(NSInteger k_index) {
-        if (k_index == 0) {
-            QZJiZhangSettingController *jizhangVC = [QZJiZhangSettingController new];
-            
-            [weakSelf.navigationController pushViewController:jizhangVC animated:YES];
-        } else {
-            QZYuSuanSettingController *yusuanVC = [QZYuSuanSettingController new];
-            
-            [weakSelf.navigationController pushViewController:yusuanVC animated:YES];
-        }
-    };
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,6 +35,20 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = YES;
+    
+    self.topHead = [[QZMineTopHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
+    self.topHead.m_delegate = self;
+    self.tableView.tableHeaderView = self.topHead;
+    
+    // 取userID
+    NSString *statusStr;
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
+        // 已登录
+        statusStr =  @"小奇\n欢迎来到记账簿";
+    } else {
+        // 未登录
+        statusStr = @"立即登录\n";
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -77,6 +75,24 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 1 && [[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
+        // 退出登录
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"退出" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self showHint:@"已退出"];
+            // 清除userId
+            [[NSUserDefaults standardUserDefaults] setValue:nil forKey:USERID_KEY];
+            
+            [self.topHead topWithStatus:@"立即登录\n"];
+            [self viewWillAppear:YES];
+        }];
+        [alertVC addAction:cancle]; [alertVC addAction:sure];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,6 +111,9 @@
 #pragma mark - -QZMineTopHeadDelegate
 - (void)toLogin
 {
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
+        return;
+    }
     QZLoginViewController *loginV = [QZLoginViewController new];
     [self.navigationController pushViewController:loginV animated:YES];
 }

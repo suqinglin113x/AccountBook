@@ -24,6 +24,9 @@
     self.window.rootViewController = [MainTabBarViewController new];
     [self.window makeKeyAndVisible];
     
+    // 键盘
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.shouldResignOnTouchOutside = YES;
     
     return YES;
 }
