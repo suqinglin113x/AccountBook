@@ -58,8 +58,8 @@
 
 - (void)login
 {
-    if ([self.no_delegate respondsToSelector:@selector(loginOfNoDataView)]) {
-        [self.no_delegate loginOfNoDataView];
+    if ([self.no_delegate respondsToSelector:@selector(toLogin)]) {
+        [self.no_delegate toLogin];
     }
 }
 

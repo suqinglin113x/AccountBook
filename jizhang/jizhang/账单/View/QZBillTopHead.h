@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @protocol QZBillTopHeadDelegate <NSObject>
-- (void)choiceItem:(NSString *)item;
+- (void)choiceItem;
 @end
 
 @interface QZBillTopHead : UIView
 @property (nonatomic, strong) NSDictionary *dict;
+@property (nonatomic, copy) NSString *itemTitle;
 @property (nonatomic, weak) id <QZBillTopHeadDelegate>top_delegate;
+
 @end

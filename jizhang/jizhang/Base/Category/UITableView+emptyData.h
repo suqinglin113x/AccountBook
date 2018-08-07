@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol UITableViewNoDataDelegate <NSObject>
-- (void)loginOfNoDataView;
+- (void)toLogin;
 @end
 
 @interface UITableView (emptyData)
