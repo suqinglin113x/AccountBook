@@ -68,7 +68,7 @@
 {
     QZBaseNavigationController *navi = [[QZBaseNavigationController alloc] initWithRootViewController:childVc];
     childVc.tabBarItem.title = title;
-    childVc.tabBarItem.image = [UIImage imageNamed:image];
+    childVc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     childVc.navigationItem.title = title;
     [self addChildViewController:navi];
