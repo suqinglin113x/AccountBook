@@ -11,6 +11,7 @@
 #import "QZJiZhangSettingController.h"
 #import "QZYuSuanSettingController.h"
 #import "QZMineBottomCell.h"
+#import "QZLoginViewController.h"
 
 @interface QZMineViewController ()
 <UITableViewDataSource, UITableViewDelegate, QZMineTopHeadDelegate>
@@ -94,7 +95,8 @@
 #pragma mark - -QZMineTopHeadDelegate
 - (void)toLogin
 {
-    
+    QZLoginViewController *loginV = [QZLoginViewController new];
+    [self.navigationController pushViewController:loginV animated:YES];
 }
 
 - (UITableView *)tableView
