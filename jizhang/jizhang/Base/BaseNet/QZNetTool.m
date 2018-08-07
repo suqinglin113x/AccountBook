@@ -25,4 +25,19 @@
     }];
 }
 
+
+//账单流水
++ (void)getAccountDataWithParams:(NSDictionary *)params block:(void(^)(QZAccountBaseModel *baseModel, NSError *error))block {
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZBillUrl] parameters:params success:^(id responseObject) {
+        if (block) {
+            QZAccountBaseModel *accountModel = [QZAccountBaseModel yy_modelWithJSON:responseObject];
+            block(accountModel,nil);
+        }
+    } failure:^(NSError *error) {
+        if (block) {
+            block(nil,error);
+        }
+    }];
+}
+
 @end

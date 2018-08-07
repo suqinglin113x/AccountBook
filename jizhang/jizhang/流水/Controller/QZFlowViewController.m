@@ -28,11 +28,31 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"账单流水";
+    
     [self.view addSubview:self.mainView];
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.top.equalTo(self.view);
     }];
+    
+    [self loadData];
 }
+
+
+#pragma mark - network
+- (void)loadData {
+    
+    NSDictionary *dict = @{@"userId":@"1"};
+    //    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
+    [QZNetTool getAccountDataWithParams:dict block:^(QZAccountBaseModel *baseModel, NSError *error) {
+        if (baseModel.code.integerValue == 200) {
+            QZAccountModel *model = baseModel.data;
+            self.mainView.model = model;
+        }
+    }];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

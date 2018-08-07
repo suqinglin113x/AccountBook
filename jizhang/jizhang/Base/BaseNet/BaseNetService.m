@@ -28,10 +28,10 @@
     manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
     
     [manage POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"网络请求========url:%@\n%@",task.response.URL,responseObject);
+        NALog(@"网络请求========url:%@\n%@",task.response.URL,responseObject);
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"网络请求error========url:%@\n%@",task.response.URL,error);
+        NALog(@"网络请求error========url:%@\n%@",task.response.URL,error);
         failure(error);
     }];
 }

@@ -38,7 +38,7 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.model.list.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:accountTableViewIdentifier];
@@ -47,8 +47,13 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:accountTableViewIdentifier];
     }
     
-    cell.textLabel.text = @"嘿";
-    cell.detailTextLabel.text = @"+300.00";
+    QZChartListModel *listModel = self.model.list[indexPath.row];
+    cell.textLabel.text = listModel.item;
+    NSString *flag = @"+";
+    if (listModel.type.integerValue == 2) {
+        flag = @"-";
+    }
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",flag,listModel.money];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -64,9 +69,15 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     QZAccountHeaderView *view = [[QZAccountHeaderView alloc] init];
-    
+    view.model = self.model;
     return view;
 }
 
+
+- (void)setModel:(QZAccountModel *)model {
+    _model = model;
+    
+    [self reloadData];
+}
 
 @end

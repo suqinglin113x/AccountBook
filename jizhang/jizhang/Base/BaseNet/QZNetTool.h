@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "QZChartBaseModel.h"
+#import "QZAccountBaseModel.h"
 
 @interface QZNetTool : NSObject
 
 //图表
 + (void)getChartDataWithParams:(NSDictionary *)params block:(void(^)(QZChartBaseModel *baseModel, NSError *error))block;
+
+//账单流水
++ (void)getAccountDataWithParams:(NSDictionary *)params block:(void(^)(QZAccountBaseModel *baseModel, NSError *error))block;
 
 @end

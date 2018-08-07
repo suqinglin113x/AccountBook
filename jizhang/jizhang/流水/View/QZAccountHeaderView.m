@@ -106,4 +106,12 @@
     
 }
 
+- (void)setModel:(QZAccountModel *)model {
+    _model = model;
+    
+    self.expendLbl.text = model.expenditure;
+    self.incomeLbl.text = model.income;
+    self.surplusLbl.text = model.surplus;
+}
+
 @end
