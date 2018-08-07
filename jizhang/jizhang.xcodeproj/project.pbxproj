@@ -13,6 +13,13 @@
 		4F481AA721183E26009B701F /* QZPublishNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA621183E26009B701F /* QZPublishNaviTopView.m */; };
 		4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA921184FA4009B701F /* QZPublishInputView.m */; };
 		4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */; };
+		4F481AB021193AF6009B701F /* QZNetUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AAF21193AF6009B701F /* QZNetUrl.m */; };
+		4F481AB321193E1F009B701F /* QZUserDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AB221193E1F009B701F /* QZUserDataTool.m */; };
+		4F481AB621194361009B701F /* QZNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AB521194361009B701F /* QZNetTool.m */; };
+		4F481ABA211943C4009B701F /* QZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AB9211943C4009B701F /* QZBaseModel.m */; };
+		4F481ABD211947ED009B701F /* QZChartBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481ABC211947ED009B701F /* QZChartBaseModel.m */; };
+		4F481AC02119481B009B701F /* QZChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481ABF2119481B009B701F /* QZChartModel.m */; };
+		4F481AC3211949F4009B701F /* QZChartListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AC2211949F4009B701F /* QZChartListModel.m */; };
 		5673CE08779EEB6F693863AD /* libPods-jizhang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */; };
 		662F27122118719C0059E09D /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F27112118719C0059E09D /* QZWidgetTool.m */; };
 		662F2722211873CA0059E09D /* BaseNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F2721211873CA0059E09D /* BaseNetService.m */; };
@@ -86,6 +93,20 @@
 		4F481AA921184FA4009B701F /* QZPublishInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputView.m; sourceTree = "<group>"; };
 		4F481AAB211855FE009B701F /* QZPublishInputCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPublishInputCollectionCell.h; sourceTree = "<group>"; };
 		4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputCollectionCell.m; sourceTree = "<group>"; };
+		4F481AAE21193AF6009B701F /* QZNetUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZNetUrl.h; sourceTree = "<group>"; };
+		4F481AAF21193AF6009B701F /* QZNetUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZNetUrl.m; sourceTree = "<group>"; };
+		4F481AB121193E1F009B701F /* QZUserDataTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZUserDataTool.h; sourceTree = "<group>"; };
+		4F481AB221193E1F009B701F /* QZUserDataTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZUserDataTool.m; sourceTree = "<group>"; };
+		4F481AB421194361009B701F /* QZNetTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZNetTool.h; sourceTree = "<group>"; };
+		4F481AB521194361009B701F /* QZNetTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZNetTool.m; sourceTree = "<group>"; };
+		4F481AB8211943C4009B701F /* QZBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZBaseModel.h; sourceTree = "<group>"; };
+		4F481AB9211943C4009B701F /* QZBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZBaseModel.m; sourceTree = "<group>"; };
+		4F481ABB211947ED009B701F /* QZChartBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZChartBaseModel.h; sourceTree = "<group>"; };
+		4F481ABC211947ED009B701F /* QZChartBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZChartBaseModel.m; sourceTree = "<group>"; };
+		4F481ABE2119481B009B701F /* QZChartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZChartModel.h; sourceTree = "<group>"; };
+		4F481ABF2119481B009B701F /* QZChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZChartModel.m; sourceTree = "<group>"; };
+		4F481AC1211949F4009B701F /* QZChartListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZChartListModel.h; sourceTree = "<group>"; };
+		4F481AC2211949F4009B701F /* QZChartListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZChartListModel.m; sourceTree = "<group>"; };
 		662F27102118719C0059E09D /* QZWidgetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
 		662F27112118719C0059E09D /* QZWidgetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
 		662F2720211873CA0059E09D /* BaseNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetService.h; sourceTree = "<group>"; };
@@ -203,6 +224,12 @@
 		4F481A8A2117EFF5009B701F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F481ABB211947ED009B701F /* QZChartBaseModel.h */,
+				4F481ABC211947ED009B701F /* QZChartBaseModel.m */,
+				4F481ABE2119481B009B701F /* QZChartModel.h */,
+				4F481ABF2119481B009B701F /* QZChartModel.m */,
+				4F481AC1211949F4009B701F /* QZChartListModel.h */,
+				4F481AC2211949F4009B701F /* QZChartListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +290,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		4F481AB7211943AE009B701F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F481AB8211943C4009B701F /* QZBaseModel.h */,
+				4F481AB9211943C4009B701F /* QZBaseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		662F270E211871800059E09D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +311,8 @@
 			children = (
 				662F27102118719C0059E09D /* QZWidgetTool.h */,
 				662F27112118719C0059E09D /* QZWidgetTool.m */,
+				4F481AB121193E1F009B701F /* QZUserDataTool.h */,
+				4F481AB221193E1F009B701F /* QZUserDataTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -282,8 +320,13 @@
 		662F271F211873CA0059E09D /* BaseNet */ = {
 			isa = PBXGroup;
 			children = (
+				4F481AB7211943AE009B701F /* Model */,
 				662F2720211873CA0059E09D /* BaseNetService.h */,
 				662F2721211873CA0059E09D /* BaseNetService.m */,
+				4F481AAE21193AF6009B701F /* QZNetUrl.h */,
+				4F481AAF21193AF6009B701F /* QZNetUrl.m */,
+				4F481AB421194361009B701F /* QZNetTool.h */,
+				4F481AB521194361009B701F /* QZNetTool.m */,
 			);
 			path = BaseNet;
 			sourceTree = "<group>";
@@ -735,10 +778,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				662F2723211932A20059E09D /* QZChartView.h in Sources */,
+				4F481AC02119481B009B701F /* QZChartModel.m in Sources */,
 				662F2724211932A20059E09D /* QZChartView.m in Sources */,
 				662F2725211932A20059E09D /* QZNaviTopView.h in Sources */,
+				4F481AB321193E1F009B701F /* QZUserDataTool.m in Sources */,
 				662F2726211932A20059E09D /* QZNaviTopView.m in Sources */,
+				4F481AB621194361009B701F /* QZNetTool.m in Sources */,
 				66CD274621116102000283AD /* QZRegisterViewController.m in Sources */,
+				4F481ABA211943C4009B701F /* QZBaseModel.m in Sources */,
 				4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */,
 				4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */,
 				66CD26F121105575000283AD /* QZPublishViewController.m in Sources */,
@@ -759,9 +806,11 @@
 				662F2722211873CA0059E09D /* BaseNetService.m in Sources */,
 				669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */,
 				669F9E072117F96800ADC556 /* QZBillTopHead.m in Sources */,
+				4F481ABD211947ED009B701F /* QZChartBaseModel.m in Sources */,
 				66CD2743211160F4000283AD /* QZLoginViewController.m in Sources */,
 				66CD26E4211048A3000283AD /* MainTabBar.m in Sources */,
 				669F9E4E2118359B00ADC556 /* QZBillBottomCell.m in Sources */,
+				4F481AC3211949F4009B701F /* QZChartListModel.m in Sources */,
 				66CD273F21115F77000283AD /* QZBaseNavigationController.m in Sources */,
 				669F9DF32114340F00ADC556 /* UITableView+emptyData.m in Sources */,
 				66CD26EE21105463000283AD /* QZChartViewController.m in Sources */,
@@ -769,6 +818,7 @@
 				669F9DFA21145FC600ADC556 /* QZPickView.m in Sources */,
 				669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */,
 				66CD26A921104401000283AD /* AppDelegate.m in Sources */,
+				4F481AB021193AF6009B701F /* QZNetUrl.m in Sources */,
 				669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -76,7 +76,7 @@
     
     [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self);
-        make.height.mas_equalTo(0.2*kScale);
+        make.height.mas_equalTo(0.3*kScale);
     }];
     
     [self.expendLine mas_makeConstraints:^(MASConstraintMaker *make) {

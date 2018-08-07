@@ -12,6 +12,8 @@
 
 #define kMargin     15*kScale
 #define kColorText      [UIColor colorWithR:170 g:170 b:170]
+#define kArrayExpend    @[@"吃喝",@"住房",@"购物",@"交通",@"其他"]
+#define kArrayIncome    @[@"工资",@"红包",@"理财",@"其他"]
 @interface QZChartView ()
 
 @property (nonatomic, strong) UIView *topView;
@@ -45,7 +47,7 @@
         [_bottomView addSubview:self.barChart];
         [self.barChart mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(totalLbl);
-            make.top.equalTo(totalLbl.mas_bottom).offset(kMargin);
+            make.top.equalTo(totalLbl.mas_bottom);
             make.bottom.equalTo(_bottomView).offset(-kMargin*2);
         }];
     }
@@ -59,48 +61,29 @@
         _barChart.backgroundColor = [UIColor whiteColor];
         
         //Y坐标label宽度(微调)
-        
-        _barChart.yChartLabelWidth = 20.0 * kScale;
-        
-        _barChart.chartMarginLeft = 10.0 * kScale;
-        
-        _barChart.chartMarginRight = 10.0 * kScale;
-        
-        _barChart.chartMarginTop = 5.0 * kScale;
-        
-        _barChart.chartMarginBottom = 10.0 * kScale;
-        
+//        _barChart.showLevelLine = NO;
+//        _barChart.yChartLabelWidth = 20.0 * kScale;
+//        _barChart.chartMarginLeft = 10.0 * kScale;
+//        _barChart.chartMarginRight = 10.0 * kScale;
+//        _barChart.chartMarginTop = 5.0 * kScale;
+//        _barChart.chartMarginBottom = 10.0 * kScale;
         //X坐标刻度的上边距
-        
-        _barChart.labelMarginTop = 2.0 * kScale;
-        
+        _barChart.labelMarginTop = 30.0 * kScale;
         //柱子宽度
         _barChart.barWidth = 35 * kScale;
-        
         //是否显示坐标轴
-        
         _barChart.showChartBorder = YES;
-        
-        [_barChart setXLabels:@[@"吃喝",@"住房",@"购物",@"交通",@"其他"]];
-        
-        [_barChart setYValues:@[@120,@2800,@500,@33,@0]];
-        
+        [_barChart setXLabels:kArrayExpend];
+        [_barChart setYValues:@[@0,@0,@0,@0,@0]];
+//        [_barChart setYValues:@[@220,@20,@440,@60,@0]];
         //每个柱子的颜色
-        
-//        [_barChart setStrokeColors:@[kMainColor,kMainColor,kMainColor,kMainColor]];
         _barChart.strokeColor = kMainColor;
-        
         //是否立体效果
-        
         _barChart.isGradientShow = NO;
-        
         //显示各条状图的数值
-        
         _barChart.isShowNumbers = NO;
-        
-        //开始绘图
-        
-        [_barChart strokeChart];
+//        //开始绘图
+//        [_barChart strokeChart];
     }
     return _barChart;
 }
@@ -206,17 +189,51 @@
         case 0:
             self.topLbl.text = @"支出总额";
             self.bottomLbl.text = @"支出排行榜";
-            [self.barChart setXLabels:@[@"吃喝",@"住房",@"购物",@"交通",@"其他"]];
+            [self.barChart setXLabels:kArrayExpend];
+            [self.barChart setYValues:@[@0,@0,@0,@0,@0]];
+            [self.barChart strokeChart];
             break;
             
         case 1:
             self.topLbl.text = @"收入总额";
             self.bottomLbl.text = @"收入排行榜";
-            [self.barChart setXLabels:@[@"工资",@"红包",@"理财",@"其他"]];
+            [self.barChart setXLabels:kArrayIncome];
+            [self.barChart setYValues:@[@0,@0,@0,@0]];
+            [self.barChart strokeChart];
             break;
         default:
             break;
     }
+}
+
+- (void)setModel:(QZChartModel *)model {
+    _model = model;
+    
+    self.totalMLbl.text = model.moneyToal;
+    self.tCountLbl.text = model.number;
+    self.pMaxLbl.text = model.maxMoney;
+    
+    NSArray *arrM = [NSArray array];
+    if (self.type == 0) {
+        arrM = kArrayExpend;
+    }else {
+        arrM = kArrayIncome;
+    }
+    NSMutableArray *countM = [NSMutableArray array];
+    for (int i = 0; i < arrM.count; i ++) {
+        NSString *title = arrM[i];
+        __block float count = 0;
+        [model.list enumerateObjectsUsingBlock:^(QZChartListModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.item isEqualToString:title]) {
+                count = obj.money.floatValue;
+            }
+        }];
+        [countM insertObject:@(count) atIndex:i];
+    }
+    
+    [self.barChart setYValues:countM.mutableCopy];
+    [self.barChart strokeChart];
+    
 }
 
 @end

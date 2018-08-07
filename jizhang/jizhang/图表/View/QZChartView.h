@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QZChartModel.h"
 
 typedef NS_ENUM(NSInteger, QZChartType) {
     kQZChartTypeExpend = 0,     //支出
@@ -16,5 +17,6 @@ typedef NS_ENUM(NSInteger, QZChartType) {
 @interface QZChartView : UIView
 
 @property (nonatomic, assign) QZChartType type;
+@property (nonatomic, strong) QZChartModel *model;
 
 @end
