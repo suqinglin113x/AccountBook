@@ -156,6 +156,7 @@
                            @"mobile" : mobileNum,
                            @"password" : pasNum
                            };
+    __block NSString *mobile = mobileNum;
     [QZNetTool getLoginDataWithParams:dict block:^(QZLoginBaseModel *baseModel, NSError *error) {
         if (error) {
             [self showHint:kNetError];
@@ -164,6 +165,7 @@
         
         if (baseModel.code.integerValue == 200) {
             [QZUserDataTool setUserDefaultsValue:baseModel.data.userId forKey:kUserDefaultsId];
+            [QZUserDataTool setUserDefaultsValue:mobile forKey:kUserDefaultsMobile];
             [self.navigationController popViewControllerAnimated:YES];
         }else {
             [self showHint:baseModel.msg];

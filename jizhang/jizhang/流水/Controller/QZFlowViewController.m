@@ -37,6 +37,7 @@
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.top.equalTo(self.view);
     }];
+    [self noDataOrError];
     
     [self loadData];
 }

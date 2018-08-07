@@ -80,8 +80,10 @@
 - (void)plusBtnClick
 {
     if (![QZUserDataTool getUserId]) {
-        QZLoginViewController *login = [QZLoginViewController new];
-        [self presentViewController:login animated:YES completion:nil];
+        
+        QZLoginViewController *login = [[QZLoginViewController alloc] init];
+
+        [self.selectedViewController pushViewController:login animated:YES];
         return;
     }
     QZPublishViewController *pubVC = [QZPublishViewController new];

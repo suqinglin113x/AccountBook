@@ -109,6 +109,23 @@
     
 }
 
+- (void)setModel:(QZAccountModel *)model {
+    if (!model) {
+        return;
+    }
+    self.remainL.text = model? [NSString stringWithFormat:@"%@",model.surplus] : @"0.00";
+    
+    self.dateL.text = model? [NSString stringWithFormat:@"%ld月结余", [self getCurrentM]] :@"0月结余";
+    
+    // 支出
+    UILabel *lab1 = [self viewWithTag:100];
+    lab1.text = model? [NSString stringWithFormat:@"%@\n%ld月支出", model.expenditure, (long)[self getCurrentM]] : @"0.00\n0月支出";
+    
+    // 收入
+    UILabel *lab2 = [self viewWithTag:101];
+    lab2.text = model? [NSString stringWithFormat:@"%@\n%ld月收入", model.income, [self getCurrentM]] : @"0.00\n0月收入";
+}
+
 - (void)setItemTitle:(NSString *)itemTitle
 {
     [self.choiceBtn setTitle:itemTitle forState:UIControlStateNormal];

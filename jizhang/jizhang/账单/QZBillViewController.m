@@ -63,30 +63,57 @@
 #pragma mark - action
 - (void)loadData
 {
-    //
-    NSString *urlStr = @"http://192.168.1.185/zhangben/public/api/account/billwater";
-    NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]];
-    NSDictionary *dict = @{@"userId" : @1};
-    [[BaseNetService sharedManager] POST:urlStr parameters:dict success:^(id responseObject) {
+    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
+    [QZNetTool getAccountDataWithParams:dict block:^(QZAccountBaseModel *baseModel, NSError *error) {
+        if (error) {
+            [self.tableView.mj_header endRefreshing];
+            [self showHint:kNetError];
+            return ;
+        }
         
-        if ([responseObject[@"code"] isEqualToString:@"200"]) {
+        if (baseModel.code.integerValue == 200) {
+            QZAccountModel *model = baseModel.data;
             [self.dataArr removeAllObjects];
-            NSArray *dicArr = responseObject[@"data"][@"list"];
+            NSArray *dicArr = model.list;
             NSArray *temArr = [QZBillModel arrModelWithArr:dicArr];
             [self.dataArr addObjectsFromArray:temArr];
             self.datasource = self.dataArr;
             //
-            self.topHead.dict = responseObject[@"data"];
-        } else {
-            NSLog(@"请求错误%@", responseObject);
+            self.topHead.model = model;
+//            self.topHead.dict = responseObject[@"data"];
+            
+        }else {
+            [self showHint:baseModel.msg];
         }
-        [self showNODataView:responseObject[@"msg"]];
+        
+        [self showNODataView:baseModel.msg];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
-    } failure:^(NSError *error) {
-        
-        [self.tableView.mj_header endRefreshing];
     }];
+    //
+//    NSString *urlStr = @"http://192.168.1.185/zhangben/public/api/account/billwater";
+//    NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]];
+//    NSDictionary *dict = @{@"userId" : @1};
+//    [[BaseNetService sharedManager] POST:urlStr parameters:dict success:^(id responseObject) {
+//
+//        if ([responseObject[@"code"] isEqualToString:@"200"]) {
+//            [self.dataArr removeAllObjects];
+//            NSArray *dicArr = responseObject[@"data"][@"list"];
+//            NSArray *temArr = [QZBillModel arrModelWithArr:dicArr];
+//            [self.dataArr addObjectsFromArray:temArr];
+//            self.datasource = self.dataArr;
+//            //
+//            self.topHead.dict = responseObject[@"data"];
+//        } else {
+//            NSLog(@"请求错误%@", responseObject);
+//        }
+//        [self showNODataView:responseObject[@"msg"]];
+//        [self.tableView reloadData];
+//        [self.tableView.mj_header endRefreshing];
+//    } failure:^(NSError *error) {
+//
+//        [self.tableView.mj_header endRefreshing];
+//    }];
 }
 
 - (void)addPullRefresh

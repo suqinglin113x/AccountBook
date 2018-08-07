@@ -92,6 +92,8 @@
 //无数据
 - (void)showNoDataViewImg:(NSString *)imageName text:(NSString *)title {
     
+    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     UIImageView *imgView = [[UIImageView alloc] init];
     imgView.image = [UIImage imageNamed:imageName];
     [self addSubview:imgView];
@@ -118,5 +120,6 @@
             [view removeFromSuperview];
         }
     }
+    self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 }
 @end
