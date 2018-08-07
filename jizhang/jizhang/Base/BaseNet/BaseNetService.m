@@ -7,7 +7,7 @@
 //
 
 #import "BaseNetService.h"
-#import "AFNetworking.h"
+#import <AFNetworking.h>
 
 @implementation BaseNetService
 
@@ -23,9 +23,11 @@
 
 - (void)POST:(NSString *)urlStr parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
+    
     AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
     manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-    [manage POST:urlStr parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    [manage POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
