@@ -168,10 +168,13 @@ static NSString * collectionFooterIdentifier = @"publishCollectionFooterIdentifi
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
     // 当前输入的字符是'.'
     if ([string isEqualToString:@"."]) {
         // 已输入的字符串中已经包含了'.'或者""
         if ([textField.text rangeOfString:@"."].location != NSNotFound || [textField.text isEqualToString:@""]) {
+            return NO;
+        }else if (textField.text.length >= 12) {
             return NO;
         } else {
             return YES;
@@ -203,19 +206,25 @@ static NSString * collectionFooterIdentifier = @"publishCollectionFooterIdentifi
         if ([textField.text rangeOfString:@"."].location != NSNotFound) {
             NSMutableString *str = [[NSMutableString alloc] initWithString:textField.text];
             [str insertString:string atIndex:range.location];
-            if (str.length >= [str rangeOfString:@"."].location + 10) {
+            if (str.length >= [str rangeOfString:@"."].location + 4) {
                 return NO;
             }
             NSLog(@"str.length = %ld, str = %@, string.location = %ld", str.length, string, range.location);
         } else {
             if (textField.text.length > 11) {
-                return range.location < 12;
+                if ([string isEqualToString:@""]) {
+                    return YES;
+                }
+                return textField.text.length < 12;
             }
         }
-        
         
     }
     
     return YES;
+}
+
+- (void)fieldResignFirstResponder {
+    [self.inputField resignFirstResponder];
 }
 @end

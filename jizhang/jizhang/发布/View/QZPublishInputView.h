@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSArray *dataArr;
 
+- (void)fieldResignFirstResponder;
+
 @end

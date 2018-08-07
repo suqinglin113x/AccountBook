@@ -65,6 +65,7 @@
 
 - (void)cancelTopClick {
     NSLog(@"cancel");
+    [self.inputView fieldResignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
