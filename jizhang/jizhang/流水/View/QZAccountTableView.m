@@ -8,6 +8,7 @@
 
 #import "QZAccountTableView.h"
 #import "QZAccountHeaderView.h"
+#import "QZAccountTableViewCell.h"
 
 static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
 
@@ -39,19 +40,21 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
     return self.model.list.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:accountTableViewIdentifier];
+    QZAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:accountTableViewIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:accountTableViewIdentifier];
+        cell = [[QZAccountTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:accountTableViewIdentifier];
     }
     
     QZChartListModel *listModel = self.model.list[indexPath.row];
-    cell.textLabel.text = listModel.item;
+    cell.itemLbl.text = listModel.item;
     NSString *flag = @"+";
+    cell.moneyLbl.textColor = kMainColor;
     if (listModel.type.integerValue == 2) {
         flag = @"-";
+        cell.moneyLbl.textColor = [UIColor colorWithR:34 g:225 b:129];
     }
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",flag,listModel.money];
+    cell.moneyLbl.text = [NSString stringWithFormat:@"%@%@",flag,listModel.money];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

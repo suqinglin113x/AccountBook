@@ -9,6 +9,7 @@
 #import "QZAccountHeaderView.h"
 
 #define kMargin     10*kScale
+#define kFont       12
 
 @interface QZAccountHeaderView ()
 
@@ -36,9 +37,9 @@
         make.left.right.top.bottom.equalTo(self);
     }];
     
-    UILabel *leftLbl = [QZWidgetTool creatLabelWithText:@"总支出" font:10 color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
-    UILabel *centerLbl = [QZWidgetTool creatLabelWithText:@"总收入" font:10 color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
-    UILabel *rightLbl = [QZWidgetTool creatLabelWithText:@"结余" font:10 color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+    UILabel *leftLbl = [QZWidgetTool creatLabelWithText:@"总支出" font:kFont color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+    UILabel *centerLbl = [QZWidgetTool creatLabelWithText:@"总收入" font:kFont color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+    UILabel *rightLbl = [QZWidgetTool creatLabelWithText:@"结余" font:kFont color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
     
     [self addSubview:leftLbl];
     [leftLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -60,9 +61,9 @@
     }];
     
     
-    UILabel *expendLbl = [QZWidgetTool creatLabelWithText:@"0.00" font:10 color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
-    UILabel *incomeLbl = [QZWidgetTool creatLabelWithText:@"0.00" font:10 color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
-    UILabel *surplusLbl = [QZWidgetTool creatLabelWithText:@"0.00" font:10 color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+    UILabel *expendLbl = [QZWidgetTool creatLabelWithText:@"0.00" font:kFont color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+    UILabel *incomeLbl = [QZWidgetTool creatLabelWithText:@"0.00" font:kFont color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+    UILabel *surplusLbl = [QZWidgetTool creatLabelWithText:@"0.00" font:kFont color:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
     
     [self addSubview:expendLbl];
     [expendLbl mas_makeConstraints:^(MASConstraintMaker *make) {

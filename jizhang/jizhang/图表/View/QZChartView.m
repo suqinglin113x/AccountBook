@@ -26,6 +26,7 @@
 @property (nonatomic, strong) PNBarChart *barChart;
 
 @property (nonatomic, strong) UILabel *bottomLbl;
+@property (nonatomic, assign) CGRect originalFrame;
 
 @end
 
@@ -46,7 +47,8 @@
         
         [_bottomView addSubview:self.barChart];
         [self.barChart mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(totalLbl);
+            make.left.equalTo(totalLbl);
+            make.right.equalTo(_bottomView);
             make.top.equalTo(totalLbl.mas_bottom);
             make.bottom.equalTo(_bottomView).offset(-kMargin*2);
         }];
@@ -68,7 +70,7 @@
 //        _barChart.chartMarginTop = 5.0 * kScale;
 //        _barChart.chartMarginBottom = 10.0 * kScale;
         //X坐标刻度的上边距
-        _barChart.labelMarginTop = 30.0 * kScale;
+        _barChart.labelMarginTop = 25.0 * kScale;
         //柱子宽度
         _barChart.barWidth = 35 * kScale;
         //是否显示坐标轴
@@ -192,6 +194,7 @@
             [self.barChart setXLabels:kArrayExpend];
             [self.barChart setYValues:@[@0,@0,@0,@0,@0]];
             [self.barChart strokeChart];
+            self.originalFrame = self.barChart.frame;
             break;
             
         case 1:
@@ -200,6 +203,7 @@
             [self.barChart setXLabels:kArrayIncome];
             [self.barChart setYValues:@[@0,@0,@0,@0]];
             [self.barChart strokeChart];
+            self.originalFrame = self.barChart.frame;
             break;
         default:
             break;
@@ -209,9 +213,9 @@
 - (void)setModel:(QZChartModel *)model {
     _model = model;
     
-    self.totalMLbl.text = model.moneyToal;
-    self.tCountLbl.text = model.number;
-    self.pMaxLbl.text = model.maxMoney;
+    self.totalMLbl.text = [NSString stringWithFormat:@"%@元",model.moneyToal];
+    self.tCountLbl.text = [NSString stringWithFormat:@"%@笔",model.number];
+    self.pMaxLbl.text = [NSString stringWithFormat:@"%@元",model.maxMoney];
     
     NSArray *arrM = [NSArray array];
     if (self.type == 0) {
@@ -231,6 +235,7 @@
         [countM insertObject:@(count) atIndex:i];
     }
     
+    self.barChart.frame = self.originalFrame;
     [self.barChart setYValues:countM.mutableCopy];
     [self.barChart strokeChart];
     
