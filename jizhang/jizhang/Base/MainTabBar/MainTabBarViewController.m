@@ -14,6 +14,7 @@
 #import "QZPublishViewController.h"
 #import "QZFlowViewController.h"
 #import "QZMineViewController.h"
+#import "QZLoginViewController.h"
 
 
 @interface MainTabBarViewController () <MainTabBarDelegate>
@@ -78,6 +79,11 @@
 
 - (void)plusBtnClick
 {
+    if (![QZUserDataTool getUserId]) {
+        QZLoginViewController *login = [QZLoginViewController new];
+        [self presentViewController:login animated:YES completion:nil];
+        return;
+    }
     QZPublishViewController *pubVC = [QZPublishViewController new];
     pubVC.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:pubVC animated:YES completion:nil];

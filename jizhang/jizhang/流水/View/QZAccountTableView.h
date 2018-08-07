@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "QZAccountModel.h"
 
+
 @interface QZAccountTableView : UITableView
 
 @property (nonatomic, strong) QZAccountModel *model;
+
 
 @end

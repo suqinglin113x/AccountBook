@@ -78,17 +78,25 @@
     NSString *money = self.choiceDic[@"money"];
     if (money.length <= 0 || money.floatValue <= 0) {
         NALog(@"请输入金额");
-    }else {
-        NSDictionary *dict = @{@"userId":@"1",@"type":self.type,@"time":[QZWidgetTool getCurrentTimes],@"remark":@""};
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:dict];
-        [dic addEntriesFromDictionary:self.choiceDic];
-        
-        [QZNetTool postPublishDataWithParams:dic.mutableCopy block:^(QZBaseModel *baseModel, NSError *error) {
-            if (baseModel.code.integerValue == 200) {
-                [self dissMiss];
-            }
-        }];
+        return;
     }
+    
+    NSDictionary *dict = @{@"userId":[QZUserDataTool getUserId],@"type":self.type,@"time":[QZWidgetTool getCurrentTimes],@"remark":@""};
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:dict];
+    [dic addEntriesFromDictionary:self.choiceDic];
+    
+    [QZNetTool postPublishDataWithParams:dic.mutableCopy block:^(QZBaseModel *baseModel, NSError *error) {
+        if (error) {
+            [self showHint:kNetError];
+            return ;
+        }
+        if (baseModel.code.integerValue == 200) {
+            [self dissMiss];
+        }else {
+            [self showHint:baseModel.msg];
+        }
+    }];
+    
 
 }
 

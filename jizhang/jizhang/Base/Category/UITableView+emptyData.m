@@ -87,4 +87,36 @@
 {
     return objc_getAssociatedObject(self, @"no_dele");
 }
+
+
+//无数据
+- (void)showNoDataViewImg:(NSString *)imageName text:(NSString *)title {
+    
+    UIImageView *imgView = [[UIImageView alloc] init];
+    imgView.image = [UIImage imageNamed:imageName];
+    [self addSubview:imgView];
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.centerY.equalTo(self).offset(-50 * kScale);
+        make.width.height.mas_equalTo(116 * kScale);
+    }];
+    
+    UILabel *titleLbl = [QZWidgetTool creatLabelWithText:kNoData font:14 color:[UIColor colorWithR:153 g:153 b:153] alignment:NSTextAlignmentCenter];
+    [self addSubview:titleLbl];
+    [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(imgView);
+        make.top.equalTo(imgView.mas_bottom).offset(15 * kScale);
+        make.height.mas_equalTo(20 * kScale);
+    }];
+
+}
+
+//删除无数据页面
+- (void)removeNoDataView {
+    for (UIView *view in self.subviews) {
+        if ([view isKindOfClass:[UIImageView class]] || [view isKindOfClass:[UILabel class]]) {
+            [view removeFromSuperview];
+        }
+    }
+}
 @end

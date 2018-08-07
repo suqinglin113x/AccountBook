@@ -26,7 +26,7 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
         if (@available(iOS 11.0, *)) {
             self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
-        self.tableFooterView = [[UIView alloc] init];
+//        self.tableFooterView = [[UIView alloc] init];
     }
     return self;
 }
@@ -70,7 +70,10 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     QZAccountHeaderView *view = [[QZAccountHeaderView alloc] init];
-    view.model = self.model;
+    if (self.model) {
+        view.model = self.model;
+    }
+    
     return view;
 }
 
@@ -80,5 +83,7 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
     
     [self reloadData];
 }
+
+
 
 @end

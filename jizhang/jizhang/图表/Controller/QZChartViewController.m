@@ -44,6 +44,12 @@
     return _expendChartView;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showExpendChart];
+    [self selectExpend];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -71,15 +77,23 @@
         make.left.right.bottom.equalTo(self.view);
     }];
     
-    [self showExpendChart];
+//    [self showExpendChart];
 }
 
 #pragma mark - network
 - (void)loadDataWithType:(NSString *)type {
     
-    NSDictionary *dict = @{@"userId":@"1",@"type":type};
-//    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
+    if (![QZUserDataTool getUserId]) {
+        return;
+    }
+    
+//    NSDictionary *dict = @{@"userId":@"1",@"type":type};
+    NSDictionary *dict = @{@"userId":[QZUserDataTool getUserId],@"type":type};
     [QZNetTool getChartDataWithParams:dict block:^(QZChartBaseModel *baseModel, NSError *error) {
+        if (error) {
+            [self showHint:kNetError];
+            return ;
+        }
         if (baseModel.code.integerValue == 200) {
             QZChartModel *model = baseModel.data;
             if (type.integerValue == 1) {
@@ -87,6 +101,8 @@
             }else {
                 self.expendChartView.model = model;
             }
+        }else {
+            [self showHint:baseModel.msg];
         }
     }];
     
@@ -98,6 +114,7 @@
 #pragma mark - QZChartTopViewDelegate
 - (void)showExpendChart {
     NSLog(@"支出");
+    
     self.expendChartView.hidden = NO;
     self.incomeChartView.hidden = YES;
     [self loadDataWithType:@"2"];
@@ -105,9 +122,15 @@
 
 - (void)showIncomeChart {
     NSLog(@"收入");
+    
     self.expendChartView.hidden = YES;
     self.incomeChartView.hidden = NO;
     [self loadDataWithType:@"1"];
+}
+
+- (void)selectExpend {
+    __weak typeof(self) weakSelf = self;
+    [weakSelf.topView selcetExpend];
 }
 
 - (void)didReceiveMemoryWarning {

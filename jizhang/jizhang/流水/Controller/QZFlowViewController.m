@@ -8,6 +8,7 @@
 
 #import "QZFlowViewController.h"
 #import "QZAccountTableView.h"
+#import "UITableView+emptyData.h"
 
 @interface QZFlowViewController ()
 
@@ -44,17 +45,30 @@
 #pragma mark - network
 - (void)loadData {
     
-    NSDictionary *dict = @{@"userId":@"1"};
-    //    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
+    if (![QZUserDataTool getUserId]) {
+        self.mainView.model = nil;
+        [self noDataOrError];
+        return;
+    }
+    
+    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
     [QZNetTool getAccountDataWithParams:dict block:^(QZAccountBaseModel *baseModel, NSError *error) {
+        [self.mainView.mj_header endRefreshing];
         if (error) {
-            [self.mainView.mj_header endRefreshing];
+            self.mainView.model = nil;
+            [self showHint:kNetError];
+            [self noDataOrError];
+            return ;
+        }
+        
+        if (baseModel.code.integerValue == 200) {
+            [self.mainView removeNoDataView];
+            QZAccountModel *model = baseModel.data;
+            self.mainView.model = model;
         }else {
-            if (baseModel.code.integerValue == 200) {
-                QZAccountModel *model = baseModel.data;
-                self.mainView.model = model;
-            }
-            [self.mainView.mj_header endRefreshing];
+            self.mainView.model = nil;
+            [self showHint:baseModel.msg];
+            [self noDataOrError];
         }
         
     }];
@@ -63,19 +77,17 @@
 }
 
 
+- (void)noDataOrError {
+    if (!self.mainView.model) {
+        [self.mainView showNoDataViewImg:@"nodata" text:kNoData];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

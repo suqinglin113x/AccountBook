@@ -112,10 +112,7 @@
 #pragma mark - click
 - (void)didClickButtonExpend:(UIButton *)sender {
     
-    sender.selected = YES;
-    self.incomeBtn.selected = NO;
-    self.expendLine.hidden = NO;
-    self.incomeLine.hidden = YES;
+    [self selcetExpend];
     if ([self.delegate respondsToSelector:@selector(showExpendChart)]) {
         [self.delegate showExpendChart];
     }
@@ -123,13 +120,23 @@
 
 - (void)didClickButtonIncome:(UIButton *)sender {
     
-    sender.selected = YES;
-    self.expendBtn.selected = NO;
-    self.expendLine.hidden = YES;
-    self.incomeLine.hidden = NO;
+    [self selectIncome];
     if ([self.delegate respondsToSelector:@selector(showIncomeChart)]) {
         [self.delegate showIncomeChart];
     }
+}
+
+- (void)selcetExpend {
+    self.expendBtn.selected = YES;
+    self.incomeBtn.selected = NO;
+    self.expendLine.hidden = NO;
+    self.incomeLine.hidden = YES;
+}
+- (void)selectIncome {
+    self.incomeBtn.selected = YES;
+    self.expendBtn.selected = NO;
+    self.expendLine.hidden = YES;
+    self.incomeLine.hidden = NO;
 }
 
 @end

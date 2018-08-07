@@ -35,6 +35,8 @@
 //    [self setupBottomQuickLoginUI];
 }
 
+
+
 - (void)setupTopUI
 {
     NSArray *placeTexts = @[@"请输入手机号", @"请输入密码"];
@@ -147,30 +149,24 @@
         return;
     }
     
-    
-    NSString *url = @"http://192.168.1.185/zhangben/public/api/account/login";
     NSDictionary *dict = @{
                            @"mobile" : mobileNum,
                            @"password" : pasNum
                            };
-    [[BaseNetService sharedManager] POST:url parameters:dict success:^(id responseObject) {
-        if ([responseObject[@"code"] isEqualToString:@"200"]) {
-            
-            [self showHint:responseObject[@"msg"]];
-            NSLog(@"哈哈:%@",responseObject);
-            
-            // 存userId
-            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"userId"] forKey:USERID_KEY];
-            
-            //
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        } else {
-            [self showHint:responseObject[@"msg"]];
+    [QZNetTool getLoginDataWithParams:dict block:^(QZLoginBaseModel *baseModel, NSError *error) {
+        if (error) {
+            [self showHint:kNetError];
+            return ;
         }
-    } failure:^(NSError *error) {
-        [self showHint:@"网络请求错误,请稍后再试"];
+        
+        if (baseModel.code.integerValue == 200) {
+            [QZUserDataTool setUserDefaultsValue:baseModel.data.userId forKey:kUserDefaultsId];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [self showHint:baseModel.msg];
+        }
     }];
+    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField

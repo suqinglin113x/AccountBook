@@ -18,4 +18,7 @@
 
 @property (nonatomic, weak) id<QZChartTopViewDelegate> delegate;
 
+- (void)selcetExpend;
+- (void)selectIncome;
+
 @end

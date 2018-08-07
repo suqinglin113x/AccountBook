@@ -20,4 +20,10 @@
 - (void)hideNoDataView;
 
 @property (nonatomic, weak) id <UITableViewNoDataDelegate> no_delegate;
+
+
+//无数据页面
+- (void)showNoDataViewImg:(NSString *)imageName text:(NSString *)title;
+//删除无数据页面
+- (void)removeNoDataView;
 @end

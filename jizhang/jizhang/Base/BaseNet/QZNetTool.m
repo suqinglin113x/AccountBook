@@ -54,4 +54,18 @@
     }];
 }
 
+//登录
++ (void)getLoginDataWithParams:(NSDictionary *)params block:(void(^)(QZLoginBaseModel *baseModel, NSError *error))block {
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZLoginUrl] parameters:params success:^(id responseObject) {
+        if (block) {
+            QZLoginBaseModel *baseModel = [QZLoginBaseModel yy_modelWithJSON:responseObject];
+            block(baseModel,nil);
+        }
+    } failure:^(NSError *error) {
+        if (block) {
+            block(nil,error);
+        }
+    }];
+}
+
 @end

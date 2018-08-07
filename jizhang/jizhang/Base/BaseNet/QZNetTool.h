@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "QZChartBaseModel.h"
 #import "QZAccountBaseModel.h"
+#import "QZLoginBaseModel.h"
 
 @interface QZNetTool : NSObject
 
@@ -20,5 +21,8 @@
 
 //发布
 + (void)postPublishDataWithParams:(NSDictionary *)params block:(void(^)(QZBaseModel *baseModel, NSError *error))block;
+
+//登录
++ (void)getLoginDataWithParams:(NSDictionary *)params block:(void(^)(QZLoginBaseModel *baseModel, NSError *error))block;
 
 @end

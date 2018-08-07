@@ -31,7 +31,10 @@
 #define NALog(...){}
 #endif
 
+#define kNetError @"网络请求错误,请稍后再试"
+#define kNoData @"无记账记录"
 
 #define USERID_KEY @"userId"
+
 
 #endif /* Macro_h */

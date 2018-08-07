@@ -23,6 +23,8 @@
 		4F481AC621197035009B701F /* QZAccountBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AC521197035009B701F /* QZAccountBaseModel.m */; };
 		4F481AC92119704F009B701F /* QZAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AC82119704F009B701F /* QZAccountModel.m */; };
 		4F481ACF21198C20009B701F /* QZAccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481ACE21198C20009B701F /* QZAccountTableViewCell.m */; };
+		4F481AD32119999E009B701F /* QZLoginBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AD22119999E009B701F /* QZLoginBaseModel.m */; };
+		4F481AD6211999AE009B701F /* QZLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AD5211999AE009B701F /* QZLoginModel.m */; };
 		5673CE08779EEB6F693863AD /* libPods-jizhang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */; };
 		662F27122118719C0059E09D /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F27112118719C0059E09D /* QZWidgetTool.m */; };
 		662F2722211873CA0059E09D /* BaseNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F2721211873CA0059E09D /* BaseNetService.m */; };
@@ -118,6 +120,10 @@
 		4F481AC82119704F009B701F /* QZAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZAccountModel.m; sourceTree = "<group>"; };
 		4F481ACD21198C20009B701F /* QZAccountTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZAccountTableViewCell.h; sourceTree = "<group>"; };
 		4F481ACE21198C20009B701F /* QZAccountTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZAccountTableViewCell.m; sourceTree = "<group>"; };
+		4F481AD12119999E009B701F /* QZLoginBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZLoginBaseModel.h; sourceTree = "<group>"; };
+		4F481AD22119999E009B701F /* QZLoginBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZLoginBaseModel.m; sourceTree = "<group>"; };
+		4F481AD4211999AE009B701F /* QZLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZLoginModel.h; sourceTree = "<group>"; };
+		4F481AD5211999AE009B701F /* QZLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZLoginModel.m; sourceTree = "<group>"; };
 		662F27102118719C0059E09D /* QZWidgetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
 		662F27112118719C0059E09D /* QZWidgetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
 		662F2720211873CA0059E09D /* BaseNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetService.h; sourceTree = "<group>"; };
@@ -316,6 +322,17 @@
 			children = (
 				4F481AB8211943C4009B701F /* QZBaseModel.h */,
 				4F481AB9211943C4009B701F /* QZBaseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F481AD02119997C009B701F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F481AD12119999E009B701F /* QZLoginBaseModel.h */,
+				4F481AD22119999E009B701F /* QZLoginBaseModel.m */,
+				4F481AD4211999AE009B701F /* QZLoginModel.h */,
+				4F481AD5211999AE009B701F /* QZLoginModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -559,6 +576,7 @@
 		66CD2740211160E3000283AD /* Login Regist */ = {
 			isa = PBXGroup;
 			children = (
+				4F481AD02119997C009B701F /* Model */,
 				66CD2741211160F4000283AD /* QZLoginViewController.h */,
 				66CD2742211160F4000283AD /* QZLoginViewController.m */,
 				66CD274421116102000283AD /* QZRegisterViewController.h */,
@@ -812,6 +830,7 @@
 				4F481AB621194361009B701F /* QZNetTool.m in Sources */,
 				66CD274621116102000283AD /* QZRegisterViewController.m in Sources */,
 				4F481ABA211943C4009B701F /* QZBaseModel.m in Sources */,
+				4F481AD32119999E009B701F /* QZLoginBaseModel.m in Sources */,
 				4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */,
 				4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */,
 				66CD26F121105575000283AD /* QZPublishViewController.m in Sources */,
@@ -837,6 +856,7 @@
 				4F481ABD211947ED009B701F /* QZChartBaseModel.m in Sources */,
 				66CD2743211160F4000283AD /* QZLoginViewController.m in Sources */,
 				66CD26E4211048A3000283AD /* MainTabBar.m in Sources */,
+				4F481AD6211999AE009B701F /* QZLoginModel.m in Sources */,
 				4F481AC621197035009B701F /* QZAccountBaseModel.m in Sources */,
 				669F9E4E2118359B00ADC556 /* QZBillBottomCell.m in Sources */,
 				4F481AC3211949F4009B701F /* QZChartListModel.m in Sources */,
