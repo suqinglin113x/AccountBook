@@ -11,8 +11,10 @@
 #import "QZJiZhangSettingController.h"
 #import "QZYuSuanSettingController.h"
 #import "QZMineBottomCell.h"
+#import "QZLoginViewController.h"
 
-@interface QZMineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface QZMineViewController ()
+<UITableViewDataSource, UITableViewDelegate, QZMineTopHeadDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *contents;
 @end
@@ -22,11 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = YES;
     
     [self.view addSubview:self.tableView];
     
-    QZMineTopHead *topHead = [[QZMineTopHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 300 *kScale)];
+    QZMineTopHead *topHead = [[QZMineTopHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
+    topHead.m_delegate = self;
     self.tableView.tableHeaderView = topHead;
     
     __weak typeof(self)weakSelf = self;
@@ -44,6 +46,12 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -70,11 +78,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:[UIViewController new] animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50 *kScale;
+    return 51 *kScale;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -84,16 +91,26 @@
 {
     return 0.000001;
 }
+
+#pragma mark - -QZMineTopHeadDelegate
+- (void)toLogin
+{
+    QZLoginViewController *loginV = [QZLoginViewController new];
+    [self.navigationController pushViewController:loginV animated:YES];
+}
+
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
         
         _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
         _tableView.tableFooterView = [UIView new];
+        _tableView.backgroundColor = UIColorFromHex(0xf8f8f8);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.estimatedSectionFooterHeight = 0 *kScale;
         _tableView.estimatedSectionHeaderHeight = 10 *kScale;
+        _tableView.scrollEnabled = NO;
         if (@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         } else {
@@ -108,7 +125,7 @@
 {
     if (_contents == nil) {
         
-        _contents = @[@[@{@"icon":@"jizhangshezhi", @"title" : @"关于我们"}], @[@{@"icon":@"jizhangshezhi", @"title" : @"为奇子簿评分"}, @{@"icon":@"jizhangshezhi", @"title" : @"分享APP给基友"}]];
+        _contents = @[@[@{@"icon":@"关于我们", @"title" : @"关于我们"}], @[@{@"icon":@"退出登录", @"title" : @"退出登录"}]];
     }
     return _contents;
 }

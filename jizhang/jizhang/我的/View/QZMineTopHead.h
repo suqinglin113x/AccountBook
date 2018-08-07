@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol QZMineTopHeadDelegate <NSObject>
+- (void)toLogin;
+
+@end
+
 @interface QZMineTopHead : UIView
 
 @property (nonatomic, copy) void (^setingBlock)(NSInteger k_index);
-
+@property (nonatomic, weak) id <QZMineTopHeadDelegate> m_delegate;
 @end
 
 @interface QZMineBottom : UIView

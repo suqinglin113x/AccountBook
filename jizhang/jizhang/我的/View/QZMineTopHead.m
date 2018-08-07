@@ -23,11 +23,13 @@
 {
     [super layoutSubviews];
     
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
+    UIImageView *headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
     [self addSubview:headView];
+    headView.image = [UIImage  imageNamed:@"个人中心背景"];
     headView.backgroundColor = UIColorFromHex(0xffde01);
+    headView.userInteractionEnabled = YES;
     
-    UIImageView *headIv = [[UIImageView  alloc] initWithImage:[UIImage imageNamed:@"touxiang"]];
+    UIImageView *headIv = [[UIImageView alloc] init];
     [headView addSubview:headIv];
     headIv.bounds = CGRectMake(0, 0, 90 *kScale, 90 *kScale);
     headIv.center = CGPointMake(headView.centerX - 10*kScale, headView.centerY - 20 *kScale);
@@ -36,12 +38,15 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, headIv.bottom, kScreenWidth *0.7, 60 *kScale)];
     label.centerX = headView.centerX;
-    label.textColor = [UIColor whiteColor];
-    
-    label.font = [UIFont systemFontOfSize:15 *kScale];
-    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@"手机用户9965\n欢迎来到奇子簿的第3天"];
+    label.textColor = UIColorFromHex(0x333333);
+    label.font = [UIFont fontWithName:@"HelveticaInserat-Roman-SemiB" size:35 *kScale];
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@"小奇\n欢迎来到记账簿"];
     NSRange range = [attri.string rangeOfString:@"\n"];
-    [attri addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12 *kScale]} range:NSMakeRange(range.location, attri.length -1 - range.location)];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 8 *kScale;
+    [attri addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attri.length)];
+    [attri addAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"PingFang-SC-Regular" size:15 *kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
+    
     label.attributedText = attri;
     label.numberOfLines = 2;
     label.textAlignment = 1;
@@ -51,7 +56,7 @@
     [headView addGestureRecognizer:tap];
     
     UIView *bottomV = [[UIView alloc] initWithFrame:CGRectMake(0, headView.bottom, kScreenWidth, 100 *kScale)];
-    [self addSubview:bottomV];
+//    [self addSubview:bottomV];
     bottomV.backgroundColor = [UIColor whiteColor];
     
     NSArray *source = @[@"记账设置", @"预算设置", @"jizhangshezhi", @"yusuanshezhi"];
@@ -74,7 +79,10 @@
 
 - (void)headViewClick
 {
-    NSLog(@"去换头像了");
+    NSLog(@"去登录了");
+    if ([self.m_delegate respondsToSelector:@selector(toLogin)]) {
+        [self.m_delegate toLogin];
+    }
 }
 
 /** 0:记账设置 1: 预算设置*/

@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F481A8D2117F090009B701F /* QZChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8C2117F090009B701F /* QZChartView.m */; };
 		4F481A902117F1EC009B701F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8F2117F1EC009B701F /* UIColor+Extension.m */; };
-		4F481A952117F37E009B701F /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A942117F37E009B701F /* QZWidgetTool.m */; };
-		4F481A982118158E009B701F /* QZNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A972118158E009B701F /* QZNaviTopView.m */; };
 		4F481A9E21182A87009B701F /* QZAccountTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A9D21182A87009B701F /* QZAccountTableView.m */; };
 		4F481AA121182E43009B701F /* QZAccountHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA021182E43009B701F /* QZAccountHeaderView.m */; };
 		4F481AA721183E26009B701F /* QZPublishNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA621183E26009B701F /* QZPublishNaviTopView.m */; };
 		4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AA921184FA4009B701F /* QZPublishInputView.m */; };
 		4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */; };
 		5673CE08779EEB6F693863AD /* libPods-jizhang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7EC982F881B5D8CF57FD4D /* libPods-jizhang.a */; };
+		662F27122118719C0059E09D /* QZWidgetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F27112118719C0059E09D /* QZWidgetTool.m */; };
+		662F2722211873CA0059E09D /* BaseNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F2721211873CA0059E09D /* BaseNetService.m */; };
+		662F2723211932A20059E09D /* QZChartView.h in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8B2117F090009B701F /* QZChartView.h */; };
+		662F2724211932A20059E09D /* QZChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8C2117F090009B701F /* QZChartView.m */; };
+		662F2725211932A20059E09D /* QZNaviTopView.h in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A962118158E009B701F /* QZNaviTopView.h */; };
+		662F2726211932A20059E09D /* QZNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A972118158E009B701F /* QZNaviTopView.m */; };
 		669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA32112F19700ADC556 /* QZMineTopHead.m */; };
 		669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA72112FE3000ADC556 /* QZJiZhangSettingController.m */; };
 		669F9DAB2112FE4D00ADC556 /* QZYuSuanSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DAA2112FE4D00ADC556 /* QZYuSuanSettingController.m */; };
@@ -24,6 +27,9 @@
 		669F9DF32114340F00ADC556 /* UITableView+emptyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DF22114340F00ADC556 /* UITableView+emptyData.m */; };
 		669F9DF6211447B100ADC556 /* QZJiZhangSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DF5211447B100ADC556 /* QZJiZhangSettingCell.m */; };
 		669F9DFA21145FC600ADC556 /* QZPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DF921145FC600ADC556 /* QZPickView.m */; };
+		669F9E072117F96800ADC556 /* QZBillTopHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E062117F96800ADC556 /* QZBillTopHead.m */; };
+		669F9E4E2118359B00ADC556 /* QZBillBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E4D2118359B00ADC556 /* QZBillBottomCell.m */; };
+		669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9E9C21185A1300ADC556 /* QZBillModel.m */; };
 		66CD26A921104401000283AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CD26A821104401000283AD /* AppDelegate.m */; };
 		66CD26AF21104401000283AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CD26AD21104401000283AD /* Main.storyboard */; };
 		66CD26B121104406000283AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CD26B021104406000283AD /* Assets.xcassets */; };
@@ -68,8 +74,6 @@
 		4F481A8C2117F090009B701F /* QZChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZChartView.m; sourceTree = "<group>"; };
 		4F481A8E2117F1EC009B701F /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		4F481A8F2117F1EC009B701F /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
-		4F481A932117F37E009B701F /* QZWidgetTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
-		4F481A942117F37E009B701F /* QZWidgetTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
 		4F481A962118158E009B701F /* QZNaviTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZNaviTopView.h; sourceTree = "<group>"; };
 		4F481A972118158E009B701F /* QZNaviTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZNaviTopView.m; sourceTree = "<group>"; };
 		4F481A9C21182A87009B701F /* QZAccountTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZAccountTableView.h; sourceTree = "<group>"; };
@@ -82,6 +86,10 @@
 		4F481AA921184FA4009B701F /* QZPublishInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputView.m; sourceTree = "<group>"; };
 		4F481AAB211855FE009B701F /* QZPublishInputCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPublishInputCollectionCell.h; sourceTree = "<group>"; };
 		4F481AAC211855FE009B701F /* QZPublishInputCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPublishInputCollectionCell.m; sourceTree = "<group>"; };
+		662F27102118719C0059E09D /* QZWidgetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZWidgetTool.h; sourceTree = "<group>"; };
+		662F27112118719C0059E09D /* QZWidgetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
+		662F2720211873CA0059E09D /* BaseNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetService.h; sourceTree = "<group>"; };
+		662F2721211873CA0059E09D /* BaseNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetService.m; sourceTree = "<group>"; };
 		669F9DA22112F19700ADC556 /* QZMineTopHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZMineTopHead.h; sourceTree = "<group>"; };
 		669F9DA32112F19700ADC556 /* QZMineTopHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZMineTopHead.m; sourceTree = "<group>"; };
 		669F9DA62112FE3000ADC556 /* QZJiZhangSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZJiZhangSettingController.h; sourceTree = "<group>"; };
@@ -96,6 +104,12 @@
 		669F9DF5211447B100ADC556 /* QZJiZhangSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZJiZhangSettingCell.m; sourceTree = "<group>"; };
 		669F9DF821145FC600ADC556 /* QZPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZPickView.h; sourceTree = "<group>"; };
 		669F9DF921145FC600ADC556 /* QZPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZPickView.m; sourceTree = "<group>"; };
+		669F9E052117F96800ADC556 /* QZBillTopHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZBillTopHead.h; sourceTree = "<group>"; };
+		669F9E062117F96800ADC556 /* QZBillTopHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZBillTopHead.m; sourceTree = "<group>"; };
+		669F9E4C2118359B00ADC556 /* QZBillBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZBillBottomCell.h; sourceTree = "<group>"; };
+		669F9E4D2118359B00ADC556 /* QZBillBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZBillBottomCell.m; sourceTree = "<group>"; };
+		669F9E9B21185A1300ADC556 /* QZBillModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZBillModel.h; sourceTree = "<group>"; };
+		669F9E9C21185A1300ADC556 /* QZBillModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZBillModel.m; sourceTree = "<group>"; };
 		66CD26A421104401000283AD /* jizhang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jizhang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CD26A721104401000283AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66CD26A821104401000283AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -193,15 +207,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4F481A912117F32E009B701F /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				4F481A932117F37E009B701F /* QZWidgetTool.h */,
-				4F481A942117F37E009B701F /* QZWidgetTool.m */,
-			);
-			path = Tool;
-			sourceTree = "<group>";
-		};
 		4F481A9921182841009B701F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +263,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		662F270E211871800059E09D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		662F270F2118719C0059E09D /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				662F27102118719C0059E09D /* QZWidgetTool.h */,
+				662F27112118719C0059E09D /* QZWidgetTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		662F271F211873CA0059E09D /* BaseNet */ = {
+			isa = PBXGroup;
+			children = (
+				662F2720211873CA0059E09D /* BaseNetService.h */,
+				662F2721211873CA0059E09D /* BaseNetService.m */,
+			);
+			path = BaseNet;
+			sourceTree = "<group>";
+		};
 		669F9DA12112F15A00ADC556 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +322,33 @@
 			path = PickViews;
 			sourceTree = "<group>";
 		};
+		669F9E042117F93E00ADC556 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				669F9E052117F96800ADC556 /* QZBillTopHead.h */,
+				669F9E062117F96800ADC556 /* QZBillTopHead.m */,
+				669F9E4C2118359B00ADC556 /* QZBillBottomCell.h */,
+				669F9E4D2118359B00ADC556 /* QZBillBottomCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		669F9E082118045600ADC556 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		669F9E9A211859FC00ADC556 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				669F9E9B21185A1300ADC556 /* QZBillModel.h */,
+				669F9E9C21185A1300ADC556 /* QZBillModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		66CD269B21104401000283AD = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +358,7 @@
 				66CD26A521104401000283AD /* Products */,
 				72834770D2BFDA7F1046D5FD /* Pods */,
 				A4E2F57DE130CEB7FA27EB57 /* Frameworks */,
+				662F270E211871800059E09D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -357,6 +415,8 @@
 		66CD26D9211044C4000283AD /* 账单 */ = {
 			isa = PBXGroup;
 			children = (
+				669F9E9A211859FC00ADC556 /* Model */,
+				669F9E042117F93E00ADC556 /* View */,
 				66CD26E921105444000283AD /* QZBillViewController.h */,
 				66CD26EA21105444000283AD /* QZBillViewController.m */,
 			);
@@ -451,7 +511,8 @@
 		8736DF4A2110AB3B007A6AD5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				4F481A912117F32E009B701F /* Tool */,
+				662F271F211873CA0059E09D /* BaseNet */,
+				662F270F2118719C0059E09D /* Tool */,
 				8736DF4B2110AB6C007A6AD5 /* BaseVC */,
 				66CD26E521104E41000283AD /* Category */,
 				66CD26DE21104558000283AD /* MainTabBar */,
@@ -473,6 +534,7 @@
 		8736DF4F2110AC1F007A6AD5 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				669F9E082118045600ADC556 /* Libs */,
 				8736DF502110AC31007A6AD5 /* PrefixHeader.pch */,
 				66CD273921114682000283AD /* Macro.h */,
 			);
@@ -672,11 +734,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				662F2723211932A20059E09D /* QZChartView.h in Sources */,
+				662F2724211932A20059E09D /* QZChartView.m in Sources */,
+				662F2725211932A20059E09D /* QZNaviTopView.h in Sources */,
+				662F2726211932A20059E09D /* QZNaviTopView.m in Sources */,
 				66CD274621116102000283AD /* QZRegisterViewController.m in Sources */,
 				4F481AAD211855FE009B701F /* QZPublishInputCollectionCell.m in Sources */,
 				4F481AAA21184FA4009B701F /* QZPublishInputView.m in Sources */,
 				66CD26F121105575000283AD /* QZPublishViewController.m in Sources */,
-				4F481A8D2117F090009B701F /* QZChartView.m in Sources */,
 				66CD26E821104E52000283AD /* UIView+Extension.m in Sources */,
 				4F481A9E21182A87009B701F /* QZAccountTableView.m in Sources */,
 				66CD273821106A07000283AD /* QZMineViewController.m in Sources */,
@@ -691,16 +756,19 @@
 				669F9DF02114237D00ADC556 /* QZMineBottomCell.m in Sources */,
 				66CD26B721104406000283AD /* main.m in Sources */,
 				66CD26EB21105444000283AD /* QZBillViewController.m in Sources */,
-				4F481A982118158E009B701F /* QZNaviTopView.m in Sources */,
+				662F2722211873CA0059E09D /* BaseNetService.m in Sources */,
 				669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */,
+				669F9E072117F96800ADC556 /* QZBillTopHead.m in Sources */,
 				66CD2743211160F4000283AD /* QZLoginViewController.m in Sources */,
 				66CD26E4211048A3000283AD /* MainTabBar.m in Sources */,
+				669F9E4E2118359B00ADC556 /* QZBillBottomCell.m in Sources */,
 				66CD273F21115F77000283AD /* QZBaseNavigationController.m in Sources */,
 				669F9DF32114340F00ADC556 /* UITableView+emptyData.m in Sources */,
 				66CD26EE21105463000283AD /* QZChartViewController.m in Sources */,
+				662F27122118719C0059E09D /* QZWidgetTool.m in Sources */,
 				669F9DFA21145FC600ADC556 /* QZPickView.m in Sources */,
+				669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */,
 				66CD26A921104401000283AD /* AppDelegate.m in Sources */,
-				4F481A952117F37E009B701F /* QZWidgetTool.m in Sources */,
 				669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

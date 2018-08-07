@@ -34,7 +34,7 @@
     
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     selectedAttrs[NSFontAttributeName] = attrs[NSFontAttributeName];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor redColor];
+    selectedAttrs[NSForegroundColorAttributeName] = UIColorFromHex(0xffde01);
     
     UITabBarItem *item = [UITabBarItem appearance];
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
@@ -54,14 +54,14 @@
 
 - (void)SetupAllControllers
 {
-    [self addChildVc:[QZBillViewController new] title:@"账单" image:@"bill_normal" selectedImage:@"bill_selected"];
+    [self addChildVc:[QZBillViewController new] title:@"账单" image:@"账单点击前" selectedImage:@"账单点击后"];
     
     
-    [self addChildVc:[QZChartViewController new] title:@"图表" image:@"chart_normal" selectedImage:@"chart_selected"];
+    [self addChildVc:[QZChartViewController new] title:@"图表" image:@"图表点击前" selectedImage:@"图表点击后"];
     
-    [self addChildVc:[QZFlowViewController new] title:@"流水" image:@"chart_normal" selectedImage:@"chart_selected"];
+    [self addChildVc:[QZFlowViewController new] title:@"流水" image:@"流水点击前" selectedImage:@"流水点击后"];
     
-    [self addChildVc:[QZMineViewController new] title:@"我的" image:@"mine_normal" selectedImage:@"mine_selected"];
+    [self addChildVc:[QZMineViewController new] title:@"我的" image:@"我的点击前" selectedImage:@"我的点击后"];
 }
 
 - (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
