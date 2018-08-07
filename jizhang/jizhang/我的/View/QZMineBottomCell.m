@@ -56,7 +56,7 @@
     self.detailL.textAlignment = 2;
     self.detailL.font = [UIFont systemFontOfSize:12 *kScale];
     self.detailL.textColor = UIColorFromHex(0x666666);
-    self.detailL.text = @"版本号v0.0.1";
+    self.detailL.text = [self getVersion];
     
     self.arrowIv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow_right"]];
 //    [self.contentView addSubview:self.arrowIv];
@@ -86,5 +86,14 @@
     if ([dic[@"title"] isEqualToString:@"退出登录"]) {
         self.detailL.hidden = YES;
     }
+}
+
+- (NSString *)getVersion
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // 当前应用软件版本  比如：1.0.1
+    NSString *appCurVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *version = [NSString stringWithFormat:@"版本号V.%@", appCurVersion];
+    return version;
 }
 @end

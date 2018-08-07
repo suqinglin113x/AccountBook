@@ -17,6 +17,9 @@
 
 @property (nonatomic, copy) void (^setingBlock)(NSInteger k_index);
 @property (nonatomic, weak) id <QZMineTopHeadDelegate> m_delegate;
+
+- (void)topWithStatus:(NSString *)statusStr;
+
 @end
 
 @interface QZMineBottom : UIView

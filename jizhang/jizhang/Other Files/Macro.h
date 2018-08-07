@@ -31,4 +31,7 @@
 #define NALog(...){}
 #endif
 
+
+#define USERID_KEY @"userId"
+
 #endif /* Macro_h */

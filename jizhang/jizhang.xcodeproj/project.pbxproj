@@ -27,6 +27,8 @@
 		662F2724211932A20059E09D /* QZChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A8C2117F090009B701F /* QZChartView.m */; };
 		662F2725211932A20059E09D /* QZNaviTopView.h in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A962118158E009B701F /* QZNaviTopView.h */; };
 		662F2726211932A20059E09D /* QZNaviTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F481A972118158E009B701F /* QZNaviTopView.m */; };
+		662F272921193E5D0059E09D /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F272821193E5D0059E09D /* UIViewController+HUD.m */; };
+		662F272C21193F950059E09D /* NSObject+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F272A21193F940059E09D /* NSObject+HUD.m */; };
 		669F9DA42112F19700ADC556 /* QZMineTopHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA32112F19700ADC556 /* QZMineTopHead.m */; };
 		669F9DA82112FE3000ADC556 /* QZJiZhangSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DA72112FE3000ADC556 /* QZJiZhangSettingController.m */; };
 		669F9DAB2112FE4D00ADC556 /* QZYuSuanSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9DAA2112FE4D00ADC556 /* QZYuSuanSettingController.m */; };
@@ -111,6 +113,10 @@
 		662F27112118719C0059E09D /* QZWidgetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZWidgetTool.m; sourceTree = "<group>"; };
 		662F2720211873CA0059E09D /* BaseNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetService.h; sourceTree = "<group>"; };
 		662F2721211873CA0059E09D /* BaseNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetService.m; sourceTree = "<group>"; };
+		662F272721193E550059E09D /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
+		662F272821193E5D0059E09D /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		662F272A21193F940059E09D /* NSObject+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HUD.m"; sourceTree = "<group>"; };
+		662F272B21193F940059E09D /* NSObject+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HUD.h"; sourceTree = "<group>"; };
 		669F9DA22112F19700ADC556 /* QZMineTopHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZMineTopHead.h; sourceTree = "<group>"; };
 		669F9DA32112F19700ADC556 /* QZMineTopHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QZMineTopHead.m; sourceTree = "<group>"; };
 		669F9DA62112FE3000ADC556 /* QZJiZhangSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QZJiZhangSettingController.h; sourceTree = "<group>"; };
@@ -521,6 +527,10 @@
 		66CD26E521104E41000283AD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				662F272B21193F940059E09D /* NSObject+HUD.h */,
+				662F272A21193F940059E09D /* NSObject+HUD.m */,
+				662F272721193E550059E09D /* UIViewController+HUD.h */,
+				662F272821193E5D0059E09D /* UIViewController+HUD.m */,
 				4F481A8E2117F1EC009B701F /* UIColor+Extension.h */,
 				4F481A8F2117F1EC009B701F /* UIColor+Extension.m */,
 				66CD26E621104E52000283AD /* UIView+Extension.h */,
@@ -782,6 +792,8 @@
 				662F2724211932A20059E09D /* QZChartView.m in Sources */,
 				662F2725211932A20059E09D /* QZNaviTopView.h in Sources */,
 				4F481AB321193E1F009B701F /* QZUserDataTool.m in Sources */,
+				662F272C21193F950059E09D /* NSObject+HUD.m in Sources */,
+
 				662F2726211932A20059E09D /* QZNaviTopView.m in Sources */,
 				4F481AB621194361009B701F /* QZNetTool.m in Sources */,
 				66CD274621116102000283AD /* QZRegisterViewController.m in Sources */,
@@ -814,6 +826,7 @@
 				66CD273F21115F77000283AD /* QZBaseNavigationController.m in Sources */,
 				669F9DF32114340F00ADC556 /* UITableView+emptyData.m in Sources */,
 				66CD26EE21105463000283AD /* QZChartViewController.m in Sources */,
+				662F272921193E5D0059E09D /* UIViewController+HUD.m in Sources */,
 				662F27122118719C0059E09D /* QZWidgetTool.m in Sources */,
 				669F9DFA21145FC600ADC556 /* QZPickView.m in Sources */,
 				669F9E9D21185A1300ADC556 /* QZBillModel.m in Sources */,
