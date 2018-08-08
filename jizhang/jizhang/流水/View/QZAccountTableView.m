@@ -26,7 +26,7 @@ static NSString *accountTableViewIdentifier = @"accountTableViewIdentifier";
         if (@available(iOS 11.0, *)) {
             self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
-//        self.tableFooterView = [[UIView alloc] init];
+        self.tableFooterView = [[UIView alloc] init];
     }
     return self;
 }
