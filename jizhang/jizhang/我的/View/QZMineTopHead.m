@@ -49,7 +49,7 @@
     if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
         // 已登录
 //        statusStr =  @"小奇\n欢迎来到记账簿";
-        statusStr =  [NSString stringWithFormat:@"%@\n欢迎来到记账簿",[QZUserDataTool getUserMobile]];
+        statusStr =  [NSString stringWithFormat:@"%@\n欢迎来到记账簿",[[QZUserDataTool getUserMobile] stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"]];
     } else {
         // 未登录
         statusStr = @"立即登录\n";

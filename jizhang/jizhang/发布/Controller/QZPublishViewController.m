@@ -77,7 +77,7 @@
     self.choiceDic = [self.inputView getChoiceItem];
     NSString *money = self.choiceDic[@"money"];
     if (money.length <= 0 || money.floatValue <= 0) {
-        NALog(@"请输入金额");
+        [self showHint:@"请输入金额"];
         return;
     }
     
