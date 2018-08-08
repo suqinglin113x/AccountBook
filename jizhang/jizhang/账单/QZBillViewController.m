@@ -63,9 +63,9 @@
 {
     NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
     [[BaseNetService sharedManager] POST:[QZNetUrl QZBillUrl] parameters:dict success:^(id responseObject) {
-
+        [self.dataArr removeAllObjects];
         if ([responseObject[@"code"] isEqualToString:@"200"]) {
-            [self.dataArr removeAllObjects];
+            
             NSArray *dicArr = responseObject[@"data"][@"list"];
             NSArray *temArr = [QZBillModel arrModelWithArr:dicArr];
             [self.dataArr addObjectsFromArray:temArr];
@@ -74,6 +74,7 @@
             self.topHead.dict = responseObject[@"data"];
         } else {
             [self showHint:responseObject[@"msg"]];
+            self.topHead.dict = nil;
         }
         [self showNODataView:responseObject[@"msg"]];
         [self.tableView reloadData];
