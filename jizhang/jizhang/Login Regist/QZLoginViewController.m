@@ -149,7 +149,7 @@
 {
     [self.view endEditing:YES];
     
-    if (mobileNum.length <= 0) {
+    if (mobileNum.length <= 0 || !mobileNum.isMobilePhone) {
         [self showHint:@"请检验手机号"];
         return;
     }
