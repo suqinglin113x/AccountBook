@@ -84,6 +84,14 @@
 {
     self.iconV.image = [UIImage imageNamed:billModel.item];
     self.titleL.text = billModel.item;
-    self.detailL.text = billModel.money;
+    NSString *money;
+    if ([billModel.type integerValue] == 1) {
+        // 收入
+        money = [NSString stringWithFormat:@"+%@", billModel.money];
+    } else {
+        // 支出
+        money = [NSString stringWithFormat:@"-%@", billModel.money];
+    }
+    self.detailL.text = money;
 }
 @end

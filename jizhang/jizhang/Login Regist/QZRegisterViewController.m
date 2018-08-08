@@ -84,7 +84,7 @@
 {
     [self.view endEditing:YES];
     
-    if (mobileNum.length <= 0 || !(mobileNum.isMobilePhone)) {
+    if (mobileNum.length <= 0 || !mobileNum.isMobilePhone) {
         [self showHint:@"请检验手机号"];
         return;
     }
@@ -93,20 +93,23 @@
         return;
     }
     
-    
-    NSString *url = @"http://192.168.1.185/zhangben/public/api/account/register";
     NSDictionary *dict = @{
                            @"mobile" : mobileNum,
                            @"password" : pasNum
                            };
-    [[BaseNetService sharedManager] POST:url parameters:dict success:^(id responseObject) {
+    [[BaseNetService sharedManager] POST:QZNetUrl.QZRegisterUrl parameters:dict success:^(id responseObject) {
+        
+        [self showHint:responseObject[@"msg"]];
         if ([responseObject[@"code"] isEqualToString:@"200"]) {
-            
-            [self showHint:responseObject[@"msg"]];
-            NSLog(@"哈哈:%@",responseObject);
+           
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            });
         } else {
-            [self showHint:responseObject[@"msg"]];
+            
         }
+        
     } failure:^(NSError *error) {
         [self showHint:@"网络请求错误,请稍后再试"];
     }];

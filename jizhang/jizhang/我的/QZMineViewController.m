@@ -33,7 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
     
     self.topHead = [[QZMineTopHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 *kScale)];
     self.topHead.m_delegate = self;
@@ -43,7 +43,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 #pragma mark -- table --
@@ -88,9 +88,7 @@
 #pragma mark - -QZMineTopHeadDelegate
 - (void)toLogin
 {
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
-        return;
-    }
+    
     QZLoginViewController *loginV = [QZLoginViewController new];
     [self.navigationController pushViewController:loginV animated:YES];
 }
@@ -108,8 +106,8 @@
         [self showHint:@"已退出"];
         // 清除userId
         [[NSUserDefaults standardUserDefaults] setValue:nil forKey:USERID_KEY];
-        
-//        [self.topHead topWithStatus:@"立即登录\n"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
         [self viewWillAppear:YES];
     }];
     [alertVC addAction:cancle]; [alertVC addAction:sure];

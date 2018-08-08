@@ -24,8 +24,11 @@
 
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.navigationItem.title = @"登录";
+    
+    
     UIButton  *rightItem = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightItem setTitle:@"注册" forState:UIControlStateNormal];
+    rightItem.frame = CGRectMake(0, 0, 50 *kScale, 30 *kScale);
     [rightItem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightItem addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItem];
@@ -35,7 +38,10 @@
 //    [self setupBottomQuickLoginUI];
 }
 
-
+- (void)back
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)setupTopUI
 {
@@ -143,7 +149,7 @@
 {
     [self.view endEditing:YES];
     
-    if (mobileNum.length <= 0 ) {
+    if (mobileNum.length <= 0) {
         [self showHint:@"请检验手机号"];
         return;
     }

@@ -36,7 +36,7 @@
     self.choiceBtn = choiceBtn;
     [self addSubview:choiceBtn];
     [choiceBtn setImage:[UIImage imageNamed:@"Triangle-down"] forState:UIControlStateNormal];
-//    [choiceBtn setImage:[UIImage imageNamed:@"Triangle-up"] forState:UIControlStateSelected];
+
     [choiceBtn setTitle:@"日常" forState:UIControlStateNormal];
     [choiceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [choiceBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -5*kScale, 0, 0)];
@@ -92,26 +92,30 @@
 
 - (void)setDict:(NSDictionary *)dict
 {
-    if (!dict) {
-        return;
-    }
-    self.remainL.text = dict? [NSString stringWithFormat:@"%@",dict[@"surplus"]] : @"0.00";
+    
+    self.remainL.text = dict? [NSString stringWithFormat:@"%.02f",[dict[@"surplus"] floatValue]] : @"0.00";
     
     self.dateL.text = dict? [NSString stringWithFormat:@"%ld月结余", [self getCurrentM]] :@"0月结余";
    
     // 支出
     UILabel *lab1 = [self viewWithTag:100];
-    lab1.text = dict? [NSString stringWithFormat:@"%@\n%ld月支出", dict[@"expenditure"], (long)[self getCurrentM]] : @"0.00\n0月支出";
+    lab1.text = dict? [NSString stringWithFormat:@"%.02f\n%ld月支出", [dict[@"expenditure"] floatValue], (long)[self getCurrentM]] : @"0.00\n0月支出";
    
     // 收入
     UILabel *lab2 = [self viewWithTag:101];
-    lab2.text = dict? [NSString stringWithFormat:@"%@\n%ld月收入", dict[@"income"], [self getCurrentM]] : @"0.00\n0月收入";
+    lab2.text = dict? [NSString stringWithFormat:@"%.02f\n%ld月收入", [dict[@"income"] floatValue], [self getCurrentM]] : @"0.00\n0月收入";
     
 }
 
 - (void)setItemTitle:(NSString *)itemTitle
 {
-    [self.choiceBtn setTitle:itemTitle forState:UIControlStateNormal];
+    if (itemTitle) {
+        self.choiceBtn.hidden = NO;
+        [self.choiceBtn setTitle:itemTitle forState:UIControlStateNormal];
+    } else {
+        self.choiceBtn.hidden = YES;
+    }
+    
 }
 
 - (void)choiceBtnClick:(UIButton *)sender

@@ -29,17 +29,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
     
     [self.view addSubview:self.tableView];
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
-        [self loadData];
-    }
+    [self.tableView.mj_header beginRefreshing];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidLoad {
@@ -63,11 +61,10 @@
 #pragma mark - action
 - (void)loadData
 {
-    //
-    NSString *urlStr = @"http://192.168.1.185/zhangben/public/api/account/billwater";
-    NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]];
-    NSDictionary *dict = @{@"userId" : @1};
-    [[BaseNetService sharedManager] POST:urlStr parameters:dict success:^(id responseObject) {
+    
+    NSDictionary *dict = @{@"userId" : QZUserDataTool.getUserId};
+   
+    [[BaseNetService sharedManager] POST:QZNetUrl.QZBillUrl parameters:dict success:^(id responseObject) {
         
         if ([responseObject[@"code"] isEqualToString:@"200"]) {
             [self.dataArr removeAllObjects];
@@ -86,6 +83,8 @@
     } failure:^(NSError *error) {
         
         [self.tableView.mj_header endRefreshing];
+        [self showHint:kNetError];
+        [self showNODataView:kNetError];
     }];
 }
 
@@ -97,6 +96,7 @@
         if (![[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
             [self.tableView showNoDataViewImg:@"记账2" text:@"每一笔账，都是生活的点滴" btn:@"登录"];
             self.topHead.dict = nil;
+            self.topHead.itemTitle = nil;
             [self.tableView.mj_header endRefreshing];
             return ;
         }
@@ -107,10 +107,11 @@
 
 - (void)showNODataView:(NSString *)hint
 {
+    
+    [self.tableView hideNoDataView];
     if (self.dataArr.count == 0) {
         [self.tableView showNoDataViewImg:@"记账1" text:hint btn:@"同步数据"];
     } else {
-        [self.tableView hideNoDataView];
     }
 }
 #pragma mark -- UITableViewDataSource --
@@ -162,7 +163,7 @@
     
     if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]) {
         // 同步数据
-        [self loadData];
+        [self.tableView.mj_header beginRefreshing];
         return;
     }
     QZLoginViewController *login = [QZLoginViewController new];

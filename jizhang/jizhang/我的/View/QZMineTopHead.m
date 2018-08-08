@@ -91,8 +91,10 @@
 
 - (void)headViewClick
 {
-    NSLog(@"去登录了");
     
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
+        return;
+    }
     if ([self.m_delegate respondsToSelector:@selector(toLogin)]) {
         [self.m_delegate toLogin];
     }

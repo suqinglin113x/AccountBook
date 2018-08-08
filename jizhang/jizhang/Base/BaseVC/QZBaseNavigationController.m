@@ -29,7 +29,7 @@
     
     self.navigationBar.translucent = NO;
     
-    
+    [self getSubViews:self.navigationBar];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
@@ -60,4 +60,20 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)getSubViews:(UIView *)view {
+    for (UIView *subView in view.subviews) {
+        if (subView.subviews.count) {
+            [self getSubViews:subView];
+        } else {
+            if (subView.frame.size.height <= 1) {
+                NSLog(@"----%@", subView);
+                //  <UIImageView: 0x7fa5b3500000; frame = (0 64; 375 0.5); userInteractionEnabled = NO; layer = <CALayer: 0x60000002be80>>
+                // iOS10 之前
+                [subView removeFromSuperview];
+                // iOS10
+                  subView.hidden = YES;
+            }
+        }
+    }
+}
 @end
