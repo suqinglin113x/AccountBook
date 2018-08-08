@@ -10,10 +10,10 @@
 
 
 //测试服
-#define QZServer @"http://192.168.1.185/zhangben/public/"
+//#define QZServer @"http://192.168.1.185/zhangben/public/"
 
 //正式
-//#define QZServer @"http://qzqsd.com/"
+#define QZServer @"http://106.75.18.183:4547/"
 
 @implementation QZNetUrl
 

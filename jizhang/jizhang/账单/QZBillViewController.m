@@ -74,6 +74,7 @@
             self.topHead.dict = responseObject[@"data"];
         } else {
             [self showHint:responseObject[@"msg"]];
+            self.datasource = self.dataArr;
             self.topHead.dict = nil;
         }
         [self showNODataView:responseObject[@"msg"]];
