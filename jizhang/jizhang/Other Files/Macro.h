@@ -24,6 +24,7 @@
 #define kNavBarHeigth 44
 #define kNavBarAndStatusBarHeight (kStatusBarHeight + kNavBarHeigth)
 #define kNAFont(size)      [UIFont systemFontOfSize:size * kScale]
+#define kScaleY [[UIScreen mainScreen] bounds].size.width/667
 //log
 #ifndef __OPTIMIZE__
 #define NALog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);

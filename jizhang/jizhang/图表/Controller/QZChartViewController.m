@@ -84,14 +84,23 @@
 - (void)loadDataWithType:(NSString *)type {
     
     if (![QZUserDataTool getUserId]) {
+        if (type.integerValue == 1) {
+            self.incomeChartView.model = nil;
+        }else {
+            self.expendChartView.model = nil;
+        }
         return;
     }
-    
 //    NSDictionary *dict = @{@"userId":@"1",@"type":type};
     NSDictionary *dict = @{@"userId":[QZUserDataTool getUserId],@"type":type};
     [QZNetTool getChartDataWithParams:dict block:^(QZChartBaseModel *baseModel, NSError *error) {
         if (error) {
             [self showHint:kNetError];
+            if (type.integerValue == 1) {
+                self.incomeChartView.model = nil;
+            }else {
+                self.expendChartView.model = nil;
+            }
             return ;
         }
         if (baseModel.code.integerValue == 200) {
@@ -103,6 +112,11 @@
             }
         }else {
             [self showHint:baseModel.msg];
+            if (type.integerValue == 1) {
+                self.incomeChartView.model = nil;
+            }else {
+                self.expendChartView.model = nil;
+            }
         }
     }];
     

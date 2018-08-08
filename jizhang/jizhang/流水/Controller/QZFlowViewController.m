@@ -28,6 +28,11 @@
     return _mainView;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,7 +44,7 @@
     }];
     [self noDataOrError];
     
-    [self loadData];
+//    [self loadData];
 }
 
 

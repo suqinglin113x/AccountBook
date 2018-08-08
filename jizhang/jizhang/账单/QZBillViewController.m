@@ -63,57 +63,28 @@
 #pragma mark - action
 - (void)loadData
 {
+
     NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
-    [QZNetTool getAccountDataWithParams:dict block:^(QZAccountBaseModel *baseModel, NSError *error) {
-        if (error) {
-            [self.tableView.mj_header endRefreshing];
-            [self showHint:kNetError];
-            return ;
-        }
-        
-        if (baseModel.code.integerValue == 200) {
-            QZAccountModel *model = baseModel.data;
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZBillUrl] parameters:dict success:^(id responseObject) {
+
+        if ([responseObject[@"code"] isEqualToString:@"200"]) {
             [self.dataArr removeAllObjects];
-            NSArray *dicArr = model.list;
+            NSArray *dicArr = responseObject[@"data"][@"list"];
             NSArray *temArr = [QZBillModel arrModelWithArr:dicArr];
             [self.dataArr addObjectsFromArray:temArr];
             self.datasource = self.dataArr;
             //
-            self.topHead.model = model;
-//            self.topHead.dict = responseObject[@"data"];
-            
-        }else {
-            [self showHint:baseModel.msg];
+            self.topHead.dict = responseObject[@"data"];
+        } else {
+            [self showHint:responseObject[@"msg"]];
         }
-        
-        [self showNODataView:baseModel.msg];
+        [self showNODataView:responseObject[@"msg"]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [self showHint:kNetError];
+        [self.tableView.mj_header endRefreshing];
     }];
-    //
-//    NSString *urlStr = @"http://192.168.1.185/zhangben/public/api/account/billwater";
-//    NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY]];
-//    NSDictionary *dict = @{@"userId" : @1};
-//    [[BaseNetService sharedManager] POST:urlStr parameters:dict success:^(id responseObject) {
-//
-//        if ([responseObject[@"code"] isEqualToString:@"200"]) {
-//            [self.dataArr removeAllObjects];
-//            NSArray *dicArr = responseObject[@"data"][@"list"];
-//            NSArray *temArr = [QZBillModel arrModelWithArr:dicArr];
-//            [self.dataArr addObjectsFromArray:temArr];
-//            self.datasource = self.dataArr;
-//            //
-//            self.topHead.dict = responseObject[@"data"];
-//        } else {
-//            NSLog(@"请求错误%@", responseObject);
-//        }
-//        [self showNODataView:responseObject[@"msg"]];
-//        [self.tableView reloadData];
-//        [self.tableView.mj_header endRefreshing];
-//    } failure:^(NSError *error) {
-//
-//        [self.tableView.mj_header endRefreshing];
-//    }];
 }
 
 - (void)addPullRefresh

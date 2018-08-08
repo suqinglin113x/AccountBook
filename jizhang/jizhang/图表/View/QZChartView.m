@@ -58,7 +58,7 @@
 
 - (PNBarChart *)barChart {
     if (_barChart == nil) {
-        _barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 300)];
+        _barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 250 * kScale)];
         
         _barChart.backgroundColor = [UIColor whiteColor];
         
@@ -213,6 +213,25 @@
 - (void)setModel:(QZChartModel *)model {
     _model = model;
     
+    if (!model) {
+        self.totalMLbl.text = @"0.00元";
+        self.tCountLbl.text = @"0笔";
+        self.pMaxLbl.text = @"0.00元";
+        
+        self.barChart.frame = self.originalFrame;
+        NSArray *arrM = [NSArray array];
+        if (self.type == 0) {
+            arrM = @[@0,@0,@0,@0,@0];
+        }else {
+            arrM = @[@0,@0,@0,@0];
+        }
+        self.barChart.frame = self.originalFrame;
+        [self.barChart setYValues:arrM];
+        [self.barChart strokeChart];
+        
+        return;
+    }
+    
     self.totalMLbl.text = [NSString stringWithFormat:@"%@元",model.moneyToal];
     self.tCountLbl.text = [NSString stringWithFormat:@"%@笔",model.number];
     self.pMaxLbl.text = [NSString stringWithFormat:@"%@元",model.maxMoney];
@@ -240,5 +259,6 @@
     [self.barChart strokeChart];
     
 }
+
 
 @end

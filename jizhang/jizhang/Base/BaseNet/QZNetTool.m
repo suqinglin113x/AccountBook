@@ -26,7 +26,7 @@
 }
 
 
-//账单流水
+//流水
 + (void)getAccountDataWithParams:(NSDictionary *)params block:(void(^)(QZAccountBaseModel *baseModel, NSError *error))block {
     [[BaseNetService sharedManager] POST:[QZNetUrl QZBillUrl] parameters:params success:^(id responseObject) {
         if (block) {
@@ -67,5 +67,8 @@
         }
     }];
 }
+
+
+
 
 @end
