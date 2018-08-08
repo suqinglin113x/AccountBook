@@ -93,22 +93,20 @@
         return;
     }
     
-    
-    NSString *url = @"http://192.168.1.185/zhangben/public/api/account/register";
     NSDictionary *dict = @{
                            @"mobile" : mobileNum,
                            @"password" : pasNum
                            };
-    [[BaseNetService sharedManager] POST:url parameters:dict success:^(id responseObject) {
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZRegisterUrl] parameters:dict success:^(id responseObject) {
         if ([responseObject[@"code"] isEqualToString:@"200"]) {
             
             [self showHint:responseObject[@"msg"]];
-            NSLog(@"哈哈:%@",responseObject);
+
         } else {
             [self showHint:responseObject[@"msg"]];
         }
     } failure:^(NSError *error) {
-        [self showHint:@"网络请求错误,请稍后再试"];
+        [self showHint:kNetError];
     }];
     
 }

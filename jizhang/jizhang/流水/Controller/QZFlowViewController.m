@@ -52,6 +52,7 @@
 - (void)loadData {
     
     if (![QZUserDataTool getUserId]) {
+        [self.mainView.mj_header endRefreshing];
         self.mainView.model = nil;
         [self noDataOrError];
         return;

@@ -58,7 +58,7 @@
 
 - (PNBarChart *)barChart {
     if (_barChart == nil) {
-        _barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 250 * kScale)];
+        _barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, kMargin*3, kScreenWidth, 250 * kScale)];
         
         _barChart.backgroundColor = [UIColor whiteColor];
         

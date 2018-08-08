@@ -59,7 +59,8 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 8 *kScale;
     [attri addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attri.length)];
-    [attri addAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"PingFang-SC-Regular" size:15 *kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
+//    [attri addAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"PingFang-SC-Regular" size:15 *kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
+    [attri addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15*kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
     label.attributedText = attri;
     label.numberOfLines = 2;
     label.textAlignment = 1;
