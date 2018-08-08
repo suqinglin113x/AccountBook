@@ -36,17 +36,16 @@
 }
 - (void)setupPickView
 {
-    self.layer.cornerRadius = 10;
     
     UIView *shadow = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     shadow.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.6];
     [self addSubview:shadow];
     
-    UIPickerView *pick = [[UIPickerView alloc] init];
+    UIPickerView *pick = [[UIPickerView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 250 *kScale, kScreenWidth, 250 *kScale)];
     self.pickV = pick;
     pick.backgroundColor = [UIColor whiteColor];
-    pick.frame = CGRectMake(0, self.height - 250 *kScale, [UIScreen mainScreen].bounds.size.width, 250 *kScale);
-    [self addSubview:pick];
+//    pick.frame = CGRectMake(0, kScreenHeight - 250 *kScale, [UIScreen mainScreen].bounds.size.width, 250 *kScale);
+    [shadow addSubview:pick];
     pick.dataSource = self;
     pick.delegate = self;
     [pick selectRow:3 inComponent:0 animated:YES];
@@ -54,7 +53,7 @@
     
     UIView *toolBar = [[UIView alloc] initWithFrame:CGRectMake(0, pick.frame.origin.y - 41, kScreenWidth, 40)];
     toolBar.backgroundColor = [UIColor whiteColor];
-    [self addSubview:toolBar];
+    [shadow addSubview:toolBar];
     //  设置右上角确定按钮
     UIButton *confirmBtn = [UIButton new];
     [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
@@ -79,17 +78,19 @@
 }
 - (void)confirm
 {
-    [self dismissPick];
+    
     if ([self.b_delegate respondsToSelector:@selector(pickWithItem:)]) {
         [self.b_delegate pickWithItem:item];
     }
+    [self dismissPick];
 }
 /** 隐藏pickview*/
 - (void)dismissPick
 {
+    
     [self.pickV.superview removeFromSuperview];
     [self.pickV removeFromSuperview];
-    self.pickV = nil;
+    [self removeFromSuperview];
     
     //
     [[NSNotificationCenter defaultCenter] postNotificationName:@"triangle" object:nil];

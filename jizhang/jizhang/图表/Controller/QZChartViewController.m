@@ -46,6 +46,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController.navigationBar addSubview:self.topView];
     [self showExpendChart];
     [self selectExpend];
 }
@@ -56,9 +57,15 @@
     [self setUI];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.topView removeFromSuperview];
+}
+
 - (void)setUI {
     
-    self.navigationItem.titleView = self.topView;
+//    self.navigationItem.titleView = self.topView;
+    
 //    self.navigationController.navigationBar.hidden = YES;
     
 //    [self.view addSubview:self.topView];
@@ -154,6 +161,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [self.topView removeFromSuperview];
+}
 
 
 @end

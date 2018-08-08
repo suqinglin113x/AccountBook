@@ -105,6 +105,15 @@
         make.left.equalTo(centerLbl.mas_right);
     }];
     
+    
+    UIView *lineH = [[UIView alloc] init];
+    lineH.backgroundColor = [UIColor whiteColor];
+    [self addSubview:lineH];
+    [lineH mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self);
+        make.height.mas_equalTo(0.3*kScale);
+    }];
+    
 }
 
 - (void)setModel:(QZAccountModel *)model {
