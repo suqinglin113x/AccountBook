@@ -80,8 +80,14 @@
 - (void)plusBtnClick
 {
     if (![QZUserDataTool getUserId]) {
-        QZLoginViewController *login = [QZLoginViewController new];
-        [self presentViewController:login animated:YES completion:nil];
+        
+        QZLoginViewController *login = [[QZLoginViewController alloc] init];
+        if ([self.selectedViewController isKindOfClass:[QZBaseNavigationController class]]) {
+            [self.selectedViewController pushViewController:login animated:YES];
+        }else {
+            [self.selectedViewController.navigationController pushViewController:login animated:YES];
+        }
+        
         return;
     }
     QZPublishViewController *pubVC = [QZPublishViewController new];

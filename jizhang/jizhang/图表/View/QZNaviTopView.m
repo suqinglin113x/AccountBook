@@ -10,6 +10,9 @@
 
 #define kWidth      50
 #define kWidthAScale        kWidth*kScale
+#define kTextNormalColor        [UIColor colorWithR:102 g:102 b:102]
+#define kTextSelectColor        [UIColor colorWithR:34 g:34 b:34]
+
 @interface QZNaviTopView ()
 
 @property (nonatomic, strong) UIButton *expendBtn;
@@ -24,28 +27,28 @@
 
 - (UIButton *)expendBtn {
     if (_expendBtn == nil) {
-        _expendBtn = [QZWidgetTool creatButtonWithText:@"支出" font:16 normalColor:[UIColor colorWithR:102 g:102 b:102] selectColor:[UIColor colorWithR:34 g:34 b:34] target:self action:@selector(didClickButtonExpend:)];
+        _expendBtn = [QZWidgetTool creatButtonWithText:@"支出" font:16 normalColor:kTextNormalColor selectColor:kTextSelectColor target:self action:@selector(didClickButtonExpend:)];
     }
     return _expendBtn;
 }
 
 - (UIButton *)incomeBtn {
     if (_incomeBtn == nil) {
-        _incomeBtn = [QZWidgetTool creatButtonWithText:@"收入" font:16 normalColor:[UIColor colorWithR:102 g:102 b:102] selectColor:[UIColor colorWithR:34 g:34 b:34] target:self action:@selector(didClickButtonIncome:)];
+        _incomeBtn = [QZWidgetTool creatButtonWithText:@"收入" font:16 normalColor:kTextNormalColor selectColor:kTextSelectColor target:self action:@selector(didClickButtonIncome:)];
     }
     return _incomeBtn;
 }
 
 - (UIView *)expendLine {
     if (_expendLine == nil) {
-        _expendLine = [self creatLineWithColor:kMainColor width:kWidth height:3];
+        _expendLine = [self creatLineWithColor:kTextSelectColor width:kWidth height:3];
     }
     return _expendLine;
 }
 
 - (UIView *)incomeLine {
     if (_incomeLine == nil) {
-        _incomeLine = [self creatLineWithColor:kMainColor width:kWidth height:3];
+        _incomeLine = [self creatLineWithColor:kTextSelectColor width:kWidth height:3];
     }
     return _incomeLine;
 }
@@ -64,7 +67,7 @@
         [self addSubview:self.expendLine];
         [self addSubview:self.incomeBtn];
         [self addSubview:self.incomeLine];
-        [self addSubview:self.line];
+//        [self addSubview:self.line];
         
         [self didClickButtonExpend:self.expendBtn];
     }
@@ -74,10 +77,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self);
-        make.height.mas_equalTo(0.3*kScale);
-    }];
+//    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.bottom.equalTo(self);
+//        make.height.mas_equalTo(0.3*kScale);
+//    }];
     
     [self.expendLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(kWidthAScale);

@@ -26,7 +26,7 @@
     
     AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
     manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-    
+    NALog(@"parameters=========\n%@",parameters);
     [manage POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NALog(@"网络请求========url:%@\n%@",task.response.URL,responseObject);
         success(responseObject);

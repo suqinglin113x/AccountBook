@@ -48,7 +48,8 @@
     NSString *statusStr;
     if ([[NSUserDefaults standardUserDefaults] valueForKey:USERID_KEY])  {
         // 已登录
-        statusStr =  @"小奇\n欢迎来到记账簿";
+//        statusStr =  @"小奇\n欢迎来到记账簿";
+        statusStr =  [NSString stringWithFormat:@"%@\n欢迎来到记账簿",[QZUserDataTool getUserMobile]];
     } else {
         // 未登录
         statusStr = @"立即登录\n";
@@ -58,7 +59,8 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 8 *kScale;
     [attri addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attri.length)];
-    [attri addAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"PingFang-SC-Regular" size:15 *kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
+//    [attri addAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"PingFang-SC-Regular" size:15 *kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
+    [attri addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15*kScale]} range:NSMakeRange(range.location, attri.length - range.location)];
     label.attributedText = attri;
     label.numberOfLines = 2;
     label.textAlignment = 1;

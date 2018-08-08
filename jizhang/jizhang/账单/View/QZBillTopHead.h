@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QZAccountModel.h"
 
 @protocol QZBillTopHeadDelegate <NSObject>
 - (void)choiceItem;
@@ -16,5 +17,7 @@
 @property (nonatomic, strong) NSDictionary *dict;
 @property (nonatomic, copy) NSString *itemTitle;
 @property (nonatomic, weak) id <QZBillTopHeadDelegate>top_delegate;
+
+@property (nonatomic, strong) QZAccountModel *model;
 
 @end

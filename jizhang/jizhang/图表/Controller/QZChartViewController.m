@@ -22,7 +22,7 @@
 
 - (QZNaviTopView *)topView {
     if (_topView == nil) {
-        _topView = [[QZNaviTopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kNavBarAndStatusBarHeight)];
+        _topView = [[QZNaviTopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kNavBarHeigth)];
         _topView.delegate = self;
     }
     return _topView;
@@ -57,23 +57,25 @@
 }
 
 - (void)setUI {
-    self.navigationController.navigationBar.hidden = YES;
     
-    [self.view addSubview:self.topView];
-    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
-        make.height.mas_equalTo(kNavBarAndStatusBarHeight);
-    }];
+    self.navigationItem.titleView = self.topView;
+//    self.navigationController.navigationBar.hidden = YES;
+    
+//    [self.view addSubview:self.topView];
+//    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.right.equalTo(self.view);
+//        make.height.mas_equalTo(kNavBarAndStatusBarHeight);
+//    }];
     
     [self.view addSubview:self.incomeChartView];
     [self.incomeChartView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(kNavBarAndStatusBarHeight);
+        make.top.equalTo(self.view);
         make.left.right.bottom.equalTo(self.view);
     }];
     
     [self.view addSubview:self.expendChartView];
     [self.expendChartView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(kNavBarAndStatusBarHeight);
+        make.top.equalTo(self.view);
         make.left.right.bottom.equalTo(self.view);
     }];
     
@@ -84,14 +86,23 @@
 - (void)loadDataWithType:(NSString *)type {
     
     if (![QZUserDataTool getUserId]) {
+        if (type.integerValue == 1) {
+            self.incomeChartView.model = nil;
+        }else {
+            self.expendChartView.model = nil;
+        }
         return;
     }
-    
 //    NSDictionary *dict = @{@"userId":@"1",@"type":type};
     NSDictionary *dict = @{@"userId":[QZUserDataTool getUserId],@"type":type};
     [QZNetTool getChartDataWithParams:dict block:^(QZChartBaseModel *baseModel, NSError *error) {
         if (error) {
             [self showHint:kNetError];
+            if (type.integerValue == 1) {
+                self.incomeChartView.model = nil;
+            }else {
+                self.expendChartView.model = nil;
+            }
             return ;
         }
         if (baseModel.code.integerValue == 200) {
@@ -103,6 +114,11 @@
             }
         }else {
             [self showHint:baseModel.msg];
+            if (type.integerValue == 1) {
+                self.incomeChartView.model = nil;
+            }else {
+                self.expendChartView.model = nil;
+            }
         }
     }];
     

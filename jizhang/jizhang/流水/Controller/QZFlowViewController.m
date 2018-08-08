@@ -28,6 +28,11 @@
     return _mainView;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -37,8 +42,9 @@
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.top.equalTo(self.view);
     }];
+    [self noDataOrError];
     
-    [self loadData];
+//    [self loadData];
 }
 
 
@@ -46,6 +52,7 @@
 - (void)loadData {
     
     if (![QZUserDataTool getUserId]) {
+        [self.mainView.mj_header endRefreshing];
         self.mainView.model = nil;
         [self noDataOrError];
         return;

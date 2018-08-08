@@ -97,21 +97,22 @@
                            @"mobile" : mobileNum,
                            @"password" : pasNum
                            };
-    [[BaseNetService sharedManager] POST:QZNetUrl.QZRegisterUrl parameters:dict success:^(id responseObject) {
-        
-        [self showHint:responseObject[@"msg"]];
+
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZRegisterUrl] parameters:dict success:^(id responseObject) {
         if ([responseObject[@"code"] isEqualToString:@"200"]) {
-           
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 [self.navigationController popViewControllerAnimated:YES];
             });
+            
         } else {
             
         }
         
+        [self showHint:responseObject[@"msg"]];
     } failure:^(NSError *error) {
-        [self showHint:@"网络请求错误,请稍后再试"];
+        [self showHint:kNetError];
     }];
     
 }

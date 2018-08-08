@@ -61,11 +61,9 @@
 #pragma mark - action
 - (void)loadData
 {
-    
-    NSDictionary *dict = @{@"userId" : QZUserDataTool.getUserId};
-   
-    [[BaseNetService sharedManager] POST:QZNetUrl.QZBillUrl parameters:dict success:^(id responseObject) {
-        
+    NSDictionary *dict = @{@"userId" : [QZUserDataTool getUserId]};
+    [[BaseNetService sharedManager] POST:[QZNetUrl QZBillUrl] parameters:dict success:^(id responseObject) {
+
         if ([responseObject[@"code"] isEqualToString:@"200"]) {
             [self.dataArr removeAllObjects];
             NSArray *dicArr = responseObject[@"data"][@"list"];
@@ -75,13 +73,13 @@
             //
             self.topHead.dict = responseObject[@"data"];
         } else {
-            NSLog(@"请求错误%@", responseObject);
+            [self showHint:responseObject[@"msg"]];
         }
         [self showNODataView:responseObject[@"msg"]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
-        
+        [self showHint:kNetError];
         [self.tableView.mj_header endRefreshing];
         [self showHint:kNetError];
         [self showNODataView:kNetError];

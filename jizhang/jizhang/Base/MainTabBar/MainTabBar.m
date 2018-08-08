@@ -18,6 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        self.translucent = NO;
         // 设置tabbar的背景图片
         //        [self setBackgroundImage:[UIImage imageNamed:@"tabbar-light"]];
         
