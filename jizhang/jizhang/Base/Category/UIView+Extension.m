@@ -151,29 +151,5 @@
     return self.center.y;
 }
 
-//- (void)setMaxY:(CGFloat)maxY
-//{
-//    CGRect frame = self.frame;
-//    maxY = frame.size.height + frame.origin.y;
-//}
-//
-//- (CGFloat)maxY
-//{
-//    CGRect frame = self.frame;
-//    self.maxY = frame.size.height + frame.origin.y;
-//    return self.maxY;
-//}
-//
-//- (void)setMaxX:(CGFloat)maxX
-//{
-//    CGRect frame = self.frame;
-//    maxX = frame.size.width + frame.origin.x;
-//}
-//
-//- (CGFloat)maxX
-//{
-//    CGRect frame = self.frame;
-//    self.maxX = frame.size.width + frame.origin.x;
-//    return self.maxX;
-//}
+
 @end

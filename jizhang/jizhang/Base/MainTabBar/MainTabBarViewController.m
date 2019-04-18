@@ -100,7 +100,14 @@
     NSLog(@"%@", item.title);
 }
 
-
+- (void)viewWillLayoutSubviews
+{
+    CGRect tabFrame = self.tabBar.frame;
+    tabFrame.size.height = 49;// 始终设置为49
+    tabFrame.origin.y = self.view.frame.size.height - kTabBarHeight;
+    self.tabBar.frame= tabFrame;
+    
+}
 
 
 @end

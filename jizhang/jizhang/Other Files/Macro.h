@@ -23,6 +23,7 @@
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define kNavBarHeigth 44
 #define kNavBarAndStatusBarHeight (kStatusBarHeight + kNavBarHeigth)
+#define kTabBarHeight (kScreenHeight == 812 ? 83 : 49)
 #define kNAFont(size)      [UIFont systemFontOfSize:size * kScale]
 #define kScaleY [[UIScreen mainScreen] bounds].size.width/667
 //log
